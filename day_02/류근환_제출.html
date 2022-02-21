@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+        margin: auto;
+        box-shadow: 0 3px 7px grey;
+        background-color: white;
+    }
+
+    table:hover {
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    tr {
+        border: 1px solid #444444;
+    }
+
+    tr:nth-child(even) {
+        background-color: #eaeaeb;
+    }
+
+    thead {
+        box-shadow: 0 1px 5px grey;
+    }
+
+    th {
+        padding: 1rem 2rem;
+        letter-spacing: 0.4rem;
+        font-size: 1.2rem;
+        font-weight: 900;
+        text-align: center;
+    }
+
+    td {
+        padding: 1rem 2rem;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    
+
+<h3>웨이트 시간표</h3>
+<img src="table시간표 개념.jpg" alt="table시간표 개념">
+<table>
+    <caption>!!류근환 헬스 시간표 빠밤!!</caption>
+    <thead>
+    <tr>
+        <th>   </th>
+        <th>시간</th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th>토</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>첫째주</td>
+            <td>18:00~19:30</td>
+            <td>가슴,삼두</td>
+            <td>등,이두</td>
+            <td>어깨전면,측면</td>
+            <td>어깨후면,복근</td>
+            <td>하체대퇴이두,삼두,직근,장요근</td>
+            <td>휴식</td>
+        </tr>
+        <tr>
+            <td>둘째주</td>
+            <td>18:00~20:00</td>
+            <td style="background-color: rgb(140, 205, 231);"colspan="5">서킷트레이닝</td>
+            <td style="background-color: red;" rowspan="2">치팅오브치팅</td>
+        </tr>
+        <tr>
+            <td>셋째주</td>
+            <td>19:30~21:00</td>
+            <td style="background-color: rgb(252, 213, 219);" rowspan="3">하체</td>
+            <td>등,이두</td>
+            <td>어깨전면,측면</td>
+            <td>어깨후면,복근</td>
+            <td style="background-color: rgb(162, 243, 180);"rowspan="2">가슴,삼두,스트랭스</td>
+        </tr>
+        <tr>
+            <td>넷째주</td>
+            <td>19:30~21:00</td>
+            <td>등,이두</td>
+            <td>어깨전면,측면</td>
+            <td>어깨후면,복근</td>
+            <td>유산소</td>
+        </tr>
+        <tr>
+            <td>다섯째주</td>
+            <td>18:30~21:00</td>
+            <td>18:30~19:30등,이두/19:30~21:00유산소</td>
+            <td>18:30~19:30어깨후면/19:30~21:00유산소</td>
+            <td>18:30~19:30어깨전면,측면/19:30~21:00유산소</td>
+            <td>대회</td>
+            <td>대회끝 막장</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

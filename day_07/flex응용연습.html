@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .flex-box {
+        width: 1000px;
+        height: 500px;
+        display: flex;
+        margin: 200px auto;
+        border: 5px solid white;
+      }
+      .item {
+        border-radius: 20px;
+        position: relative;
+        flex: 1;
+        color: aliceblue;
+        transition: 0.3s;
+      }
+      .item:hover {
+        transform: scale(1.6);
+        transition: 0.3s;
+      }
+      .item:hover a {
+        display: block;
+        cursor: pointer;
+      }
+      .item:hover p {
+        display: block;
+      }
+
+      .item p {
+        color: black;
+        display: none;
+      }
+      .item a {
+        text-decoration: none;
+        display: none;
+      }
+
+      .item img {
+        border: 3px solid;
+        position: absolute;
+        border-radius: 10px;
+        border-color: black;
+        bottom: 0;
+        right: 0;
+      }
+      .item:nth-child(1) {
+        text-align: start;
+        background-color: aquamarine;
+      }
+      .item:nth-child(2) {
+        text-align: center;
+        background-color: aqua;
+      }
+      .item:nth-child(3) {
+        text-align: end;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="flex-box">
+        <div class="item">
+          <h2>바디마스터짐</h2>
+          <p>바디마스터짐 킨텍스점</p>
+          <a href="https://blog.naver.com/trainer_yoon">바마 블로그</a>
+          <img src="바디마스터짐.jpg" alt="" />
+        </div>
+        <div class="item">
+          <h2>인더썬</h2>
+          <p>인더썬 관저2호점</p>
+          <a href="https://blog.naver.com/inthesun8889">인더썬 블로그</a>
+          <img src="인더썬.png" alt="" />
+        </div>
+        <div class="item">
+          <h2>유어짐</h2>
+          <p>유어짐 관저점</p>
+          <a href="https://blog.naver.com/yourgymhope/221097806910"
+            >유어짐 블로그</a
+          >
+          <img src="유어짐.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
