@@ -15,7 +15,7 @@ header {
   background-position: center;
   background-size: cover;
   /* background 나오면 세개는 세트로 온다. */
-  height: 500px;
+  height: 400px;
   width: 100%;
   position: relative;
 }
