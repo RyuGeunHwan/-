@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .section {
+        margin: 50px auto 0;
+        width: 90%;
+        height: 500px;
+      }
+      .titlte {
+        width: 100%;
+        height: auto;
+        /* 부모의 height이 auto면 자식 height이에 맞춰짐 */
+        margin-bottom: 30px;
+      }
+      .titlte h1 {
+        text-align: center;
+      }
+      .row {
+        display: flex;
+        justify-content: space-around;
+        /* justify-content 아이템과 아이템사이 간격 조절 */
+        /* 아래 지울예정 */
+        /* width: 100%;
+        height: auto;
+        border: solid; */
+      }
+      .item {
+        padding: 2% 6%;
+        text-align: center;
+        border: solid;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+      }
+      .item p {
+        font-size: 22px;
+      }
+      .item h2 {
+        margin: 20px 0 40px;
+        font-size: 44px;
+        font-weight: 500;
+      }
+      .item h2 span {
+        font-size: 18px;
+      }
+      .item ul {
+        text-align: left;
+        margin: 20px 0;
+      }
+      .item ul li {
+        margin: 30px 0;
+      }
+      .item button {
+        width: 100%;
+        padding: 14px 0;
+        background-color: transparent;
+        /* background-color: transparent = 배경색 투명하게 */
+        color: white;
+        font-size: 15px;
+        border: 1px solid red;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 30px;
+        transition: background 0.5s;
+      }
+      .item button:hover {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="section">
+        <div class="titlte">
+          <h1>Choose your plan</h1>
+        </div>
+        <div class="row">
+          <div class="item">
+            <p>Starter</p>
+            <h2>19$ <span>/month</span></h2>
+            <ul>
+              <li>1 Website</li>
+              <li>10 GB Disk Space</li>
+              <li>Free Email Address</li>
+              <li>Basic Web Builder</li>
+              <li>No SSL Certificate</li>
+              <li>Limited Support</li>
+            </ul>
+            <button>Add to Cart</button>
+          </div>
+          <div class="item"></div>
+          <div class="item"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .section {
+        /* margin: 50px auto; */
+        display: flex;
+        width: 100%;
+        height: 700px;
+        /* border: solid; */
+        align-items: center;
+        justify-content: space-around;
+        background-color: rgb(150, 145, 145);
+      }
+      .card-layout {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: 80%;
+        box-shadow: 15px 10px 30px;
+        /* border: solid red; */
+        text-align: center;
+        border-radius: 10px;
+        justify-content: center;
+        transition: 1s;
+        animation: layout 1s linear 1;
+      }
+      @keyframes layout {
+        0% {
+          transform: scale(1.8);
+          opacity: 0.5;
+        }
+        50% {
+          transform: rotate(1turn);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(0.8);
+        }
+      }
+      .card-layout:hover {
+        transform: scale(1.2);
+        transition: 1s;
+      }
+      .img {
+        width: 200px;
+        height: 200px;
+        margin: 50px auto;
+        background-color: aquamarine;
+        transition: 0.5s;
+        border-radius: 15px;
+        animation: jam 0.5s linear 5;
+      }
+      @keyframes jam {
+        0% {
+          transform: scale(1.3);
+        }
+        50% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.3);
+        }
+      }
+      .card-layout h3 {
+        margin: 20px 0;
+      }
+      header {
+        background-color: antiquewhite;
+      }
+      .nav {
+        width: 100%;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="nav">
+          <div class="logo"></div>
+          <ul class="list">
+            <li>MENU</li>
+            <li>HOME</li>
+            <li>QNA</li>
+            <li>SETTING</li>
+          </ul>
+        </div>
+      </header>
+      <div class="section">
+        <div class="card-layout">
+          <div class="img"></div>
+
+          <h3>파이리</h3>
+          <p>피카츄 라이츄 파이리 꼬북이</p>
+        </div>
+        <div class="card-layout">
+          <div class="img"></div>
+          <h3>파이리</h3>
+          <p>피카츄 라이츄 파이리 꼬북이</p>
+        </div>
+        <div class="card-layout">
+          <div class="img"></div>
+          <h3>파이리</h3>
+          <p>피카츄 라이츄 파이리 꼬북이</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
