@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .header {
+        width: 100%;
+        height: auto;
+        background-color: black;
+      }
+      .header-nav {
+        padding: 14px 16px;
+      }
+      .header-nav ul {
+        width: 250px;
+        height: auto;
+        padding: 14px 16px;
+        font-size: 35px;
+        background-color: white;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 5px 5px 15px red;
+      }
+      .a-link {
+        position: absolute;
+      }
+      .a-link a {
+        width: 250px;
+        display: none;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        padding: 10px 15px;
+        border-radius: 15px;
+      }
+      .header-nav:hover .a-link a {
+        display: block;
+        box-shadow: -1px 1px 3px red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header-nav">
+          <ul>
+            Dropdown
+          </ul>
+          <div class="a-link">
+            <a href="#">HI</a>
+            <a href="#">HELLOW</a>
+            <a href="#">FINE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
