@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  width: 100%;
+  height: auto;
+  /* border: solid; */
+  padding-bottom: 30px;
+  padding-top: 10px;
+  background-color: rgb(5, 5, 5, 0.4);
+}
+.exercise_store {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.exercise_store h2 {
+  overflow: hidden;
+  animation: EXERCISE 3s linear 1;
+  font-size: 50px;
+}
+.exercise_store h2::after {
+  display: block;
+  width: 20px;
+  height: 15px;
+  top: 0;
+  right: 0;
+  border-right: 1px solid #000;
+}
+@keyframes EXERCISE {
+  0% {
+    width: 25%;
+  }
+  20% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  100% {
+    width: 100%;
+  }
+}
+.header_nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  font-size: 25px;
+  padding-right: 100px;
+}
+.header_nav ul li {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+.header_nav ul li a {
+  color: black;
+  text-decoration: none;
+}
+img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: black;
+  cursor: pointer;
+  margin-right: 20px;
+}
+button {
+  font-size: 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
