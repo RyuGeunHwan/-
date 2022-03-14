@@ -10,10 +10,13 @@
   <body>
     <div class="form">
       <header>
-        <div class="exercise_store"><h2>EXERCISE</h2></div>
+        <div class="exercise_store">
+          <h2>EXERCISE</h2>
+        </div>
+
         <div class="header_nav">
           <ul>
-            <li>
+            <li id="first_li">
               <img
                 id="
 muscle_img"
@@ -22,18 +25,45 @@ muscle_img"
               />
               <a href="#"> 부위별 운동 방법</a>
             </li>
-            <li>
+            <div class="first_li">
+              <!-- first_li 클릭시 display : block -->
+              <ul>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
+                <li>D</li>
+                <li>F</li>
+              </ul>
+            </div>
+
+            <li id="second_li">
               <img id="잠백이_img" src="추천 사이트.png" alt="" />
               <a href="#"> 추천 사이트</a>
             </li>
+            <div class="second_li">
+              <!-- second_li 클릭시 display : block -->
+              <ul>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
+              </ul>
+            </div>
+
             <li>
               <button>문의사항</button>
+            </li>
+            <li>
+              <div class="search"><input type="text" placeholder="검색" /></div>
             </li>
           </ul>
         </div>
       </header>
-      <div class="container"></div>
+      <div class="container">
+        <div class="side_container"></div>
+        <div class="main_container"></div>
+      </div>
       <footer></footer>
     </div>
   </body>
+  <script></script>
 </html>
