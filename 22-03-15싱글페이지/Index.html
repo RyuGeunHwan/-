@@ -4,66 +4,205 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Index.css" />
     <title>Document</title>
+    <link rel="stylesheet"  href="Index.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
   </head>
   <body>
-    <div class="form">
-      <header>
-        <div class="exercise_store">
-          <h2>EXERCISE</h2>
-        </div>
+    
+    <!-- <div class="video_area"></div>
+        <video muted autoplay loop>
+     <source id="background_video" src="video/test동영상.mp4" type="video/mp4">
 
-        <div class="header_nav">
-          <ul>
-            <li id="first_li">
-              <img
-                id="
-muscle_img"
-                src="부위별 운동 방법.jpg"
-                alt=""
-              />
-              <a href="#"> 부위별 운동 방법</a>
-            </li>
-            <div class="first_li">
-              <!-- first_li 클릭시 display : block -->
-              <ul>
-                <li>A</li>
-                <li>B</li>
-                <li>C</li>
-                <li>D</li>
-                <li>F</li>
-              </ul>
-            </div>
-
-            <li id="second_li">
-              <img id="잠백이_img" src="추천 사이트.png" alt="" />
-              <a href="#"> 추천 사이트</a>
-            </li>
-            <div class="second_li">
-              <!-- second_li 클릭시 display : block -->
-              <ul>
-                <li>A</li>
-                <li>B</li>
-                <li>C</li>
-              </ul>
-            </div>
-
-            <li>
-              <button>문의사항</button>
-            </li>
-            <li>
-              <div class="search"><input type="text" placeholder="검색" /></div>
-            </li>
-          </ul>
-        </div>
-      </header>
-      <div class="container">
-        <div class="side_container"></div>
-        <div class="main_container"></div>
+     <strong>Your browser does not support the video tag.</strong>
+   </video>
+    </div> -->
+    <header>
+      <div class="header PCA">
+        <h2 id="header_h2" >PCA</h2>
+        <ul id="headerUl" >
+          <li><a href="https://pca-korea.com:449/mall/m_mall_list.php?ps_ctid=09000000">PCA공식홈페이지</a></li>
+          <li><a href="https://www.instagram.com/accounts/login/?next=/pca_southkorea/">PCA인스타그램</a></li>
+          <li><a href="https://ko-kr.facebook.com/PCASOUTHKOREA/">PCA페이스북</a></li>
+          <li><a href="https://www.ggjil.com/m/m_schedule.php?y=2022&m=12">PCA대회일정</a></li>
+        </ul>
       </div>
-      <footer></footer>
+      <div class="header NPCA">
+        <h2 id="header_h2" >NPCA</h2>
+        <ul id="headerUl">
+          <li><a href="https://pca-korea.com:449/mall/m_mall_list.php?ps_ctid=09000000">NPCA공식홈페이지</a></li>
+          <li><a href="\https://www.instagram.com/accounts/login/?next=/pca_southkorea/">NPCA인스타그램</a></li>
+          <li><a href="https://ko-kr.facebook.com/PCASOUTHKOREA/">NPCA페이스북</a></li>
+          <li><a href="https://www.ggjil.com/m/m_schedule.php">NPCA대회일정</a></li>
+        </ul>
+      </div>
+      <div class="header ICN">
+        <h2 id="header_h2" onclick="setHeaderInirialization()">ICN</h2>
+        <ul id="headerUl">
+          <li><a href="http://icnkorea.co.kr/">ICN공식홈페이지</a></li>
+          <li><a href="https://www.facebook.com/pages/category/Sports-league/ICN-global-korea-253465738412461/">ICN인스타그램</a></li>
+          <li><a href="https://www.instagram.com/accounts/login/?next=/icnkorea_official_/">ICN페이스북</a></li>
+          <li><a href="http://icnkorea.co.kr/bbs/board.php?bo_table=M01_03">ICN대회일정</a></li>
+        </ul>
+      </div>
+      <div class="header IFBB">
+        <h2 id="header_h2" onclick="setHeaderInirialization()">IFBB</h2>
+        <ul id="headerUl">
+          <li><a href="https://ifbbprokorea.com/">IFBB공식홈페이지</a></li>
+          <li><a href="https://www.instagram.com/accounts/login/?next=/ifbbprokorea/">IFBB인스타그램</a></li>
+          <li><a href="https://www.facebook.com/ifbbprokorea/">IFBB페이스북</a></li>
+          <li><a href="https://ifbbprokorea.com/competition/schedule/">IFBB대회일정</a></li>
+        </ul>
+      </div>
+      <div class="header NABBA">
+        <h2 id="header_h2" onclick="setHeaderInirialization()">NABBA</h2>
+        <ul id="headerUl">
+          <li><a href="https://www.nabba.co.kr/">NABBA공식홈페이지</a></li>
+          <li><a href="https://www.instagram.com/accounts/login/?next=/nabbawffkorea/">NABBA인스타그램</a></li>
+          <li><a href="https://www.facebook.com/NABBAWFFASIA/">NABBA페이스북</a></li>
+          <li><a href="#">NABBA대회일정</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="container">
+      <div class="side_container">
+        <a href="#PCA">PCA</a>
+        <a href="#NPCA">NPCA</a>
+        <a href="#ICN">ICN</a>
+        <a href="#IFBB">IFBB</a>
+        <a href="#NABBA">NABBA</a>
+      </div>
+      <div class="main_container">
+        <div class="main PCA">
+          <a name="PCA"></a><h2>PCA</h2></a>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/PCA 로고.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/PCA/PCA1.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/PCA/PCA2.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/PCA/PCA3.jpg" alt="" /></div>
+          </div>
+          <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- If we need navigation buttons -->
+        <div class="buttons swiper-button-prev"></div>
+        <div class="buttons swiper-button-next"></div>
+          </div>
+        </div>
+        <div class="main NPCA">
+          <a name="NPCA"></a><h2>NPCA</h2></a>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              
+          <div class="swiper-slide"><img src="img/NPCA로고.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/NPCA/NPCA1.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/NPCA/NPCA2.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/NPCA/NPCA3.jpg" alt="" /></div>
+          </div>
+          <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        <div class="main ICN">
+          <a name="ICN"></a><h2>ICN</h2></a>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/ICN 로고.jfif" alt="" /></div>
+          <div class="swiper-slide"><img src="img/ICN/ICN1.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/ICN/ICN2.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/ICN/ICN3.jpg" alt="" /></div>
+          </div>
+          <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        <div class="main IFBB">
+          <a name="IFBB"></a><h2>IFBB</h2></a>
+         <div class="swiper">
+            <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/IFBB 로고.webp" alt="" /></div>
+          <div class="swiper-slide"><img src="img/IFBB/IFBB1.png" alt="" /></div>
+          <div class="swiper-slide"><img src="img/IFBB/IFBB2.webp" alt="" /></div>
+          <div class="swiper-slide"><img src="img/IFBB/IFBB3.jpg" alt="" /></div>
+          </div>
+          <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        <div class="main NABA">
+          <a name="NABBA"></a><h2>NABBA</h2></a>
+          
+          <div class="swiper">
+            <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/NABA 로고.png" alt="" /></div>
+          <div class="swiper-slide"><img src="img/NABBA/NABBA1.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/NABBA/NABBA2.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/NABBA/NABBA3.jpg" alt="" /></div>
+          </div>
+          <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
     </div>
+    <footer>
+      <p>(주) 근환피트니스</p>
+      <p>대전광역시 서구 관저동 더샵2차아파트</p>
+      <p>phone : 01053064635</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3215.770917136259!2d127.32809776563366!3d36.29360798005609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654de063755e41%3A0xe7580e4175df1d07!2z6rSA7KCA642U7IO-MuywqOyVhO2MjO2KuA!5e0!3m2!1sko!2skr!4v1647310615290!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+       <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+       <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        // direction: 'vertical',
+        autoplay: {
+          delay: 5000,
+        },
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+      var last_top = 0;
+$(window).scroll(function() {
+  var this_top = $(this).scrollTop();
+  if( this_top > last_top ) {
+    $("header").addClass("hide");
+  }
+  else {
+    $("header").removeClass("hide");
+  }
+	last_top = this_top;  
+});
+    </script>
   </body>
-  <script></script>
+
 </html>
