@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .popup {
+        width: 1000px;
+        height: 300px;
+        background-color: #777;
+        margin: 100px auto;
+        position: relative;
+      }
+      .close {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #777;
+        position: absolute;
+        background-color: rgb(14, 13, 13);
+        right: 0;
+        cursor: pointer;
+      }
+      .container {
+        width: 500px;
+        height: 200px;
+        margin: 50px auto;
+      }
+      button {
+        padding: 3%;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="popup" class="popup">
+      <div id="close" class="close" onclick="closePopup()"></div>
+    </div>
+    <!-- 컨텐츠 외적인 것은 container 밖에 작성! -->
+    <div class="container">
+      <!-- 사이트 컨텐츠 내용 작성 -->
+      <button onclick="openPopup()">확인</button>
+    </div>
+  </body>
+  <script>
+    function closePopup() {
+      // 바닐라 js 문법 (까먹으면 죽음 of 죽음 / 데쓰or 데쓰)
+      document.getElementById('popup').style.display = 'none';
+    }
+    function openPopup() {
+      var style = document.getElementById('popup').style.display;
+      if (style == 'none') {
+        document.getElementById('popup').style.display = 'block';
+        return true;
+        // javascript 비교 연산자(== / ===)
+        // A == B : A는B와 같다.
+        // A === B : A와B는 값도 같고 자료형도 같다.
+        //
+        // ex) var a = "1";
+        //     var a1 = 1;
+        //     a == a1 -> true
+        //     a === a1 -> false
+      }
+    }
+  </script>
+</html>
