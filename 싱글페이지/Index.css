@@ -32,7 +32,7 @@ header h2 {
   font-weight: 700;
   transition: 1s;
   background-color: aliceblue;
-  /* background-color: rgb(250, 235, 215, 0.3); */
+  z-index: 1;
 }
 
 header:hover #headerUl {
@@ -40,6 +40,7 @@ header:hover #headerUl {
   transition: 1s;
 }
 #headerUl li {
+  position: relative;
   margin-bottom: 10px;
   margin-left: 30px;
   color: rgb(12, 12, 12);
@@ -120,6 +121,30 @@ header:hover #headerUl {
   background-size: cover;
   overflow: hidden;
 }
+#NABBA_video {
+  z-index: 1;
+  border-radius: 50px;
+}
+figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  margin-top: 100px;
+  margin-right: 800px;
+}
+span {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-right: 0.05em solid white;
+}
+figure p {
+  margin-top: 15px;
+  font-weight: 200;
+  color: #777;
+  font-size: 15px;
+}
+
 .main p {
   margin-top: 10px;
   font-size: 20px;
