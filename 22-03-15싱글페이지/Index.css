@@ -26,13 +26,15 @@ header h2 {
   display: none;
   position: absolute;
   /* margin-top: 10px; */
-  border-bottom: 1px solid rgb(119, 119, 119, 0.7);
+  /* border-bottom: 1px solid rgb(119, 119, 119, 0.7); */
   border-top: 1px solid rgb(119, 119, 119, 0.7);
-  width: 250px;
+  width: 100%;
   font-weight: 700;
   transition: 1s;
+  background-color: aliceblue;
   /* background-color: rgb(250, 235, 215, 0.3); */
 }
+
 header:hover #headerUl {
   display: block;
   transition: 1s;
@@ -40,11 +42,11 @@ header:hover #headerUl {
 #headerUl li {
   margin-bottom: 10px;
   margin-left: 30px;
-  color: rgb(255, 247, 240);
+  color: rgb(12, 12, 12);
 }
 #headerUl li a {
   text-decoration: none;
-  color: rgb(248, 242, 242);
+  color: rgb(10, 10, 10);
   /* border: solid; */
 }
 .side_container {
@@ -52,13 +54,12 @@ header:hover #headerUl {
   flex-direction: column;
   width: auto;
   height: 100%;
-  /* border: solid; */
   position: fixed;
-  /* position: absolute; */
   padding: 0 20px;
-  /* background-color: bisque; */
   text-align: center;
-  /* border-radius: 30px; */
+}
+.side_container::before {
+  display: none;
 }
 .side_container a {
   margin: 60px 0;
@@ -70,7 +71,7 @@ header:hover #headerUl {
   color: rgb(243, 81, 81);
 }
 .button-div {
-  position: absolute;
+  position: fixed;
   left: 120px;
   top: 80px;
   width: 70px;
@@ -78,7 +79,7 @@ header:hover #headerUl {
   /* background: #f1f8f8; */
   /* border: 1px solid white; */
   cursor: pointer;
-  color: azure;
+  color: rgb(243, 81, 81);
   font-size: 30px;
   font-weight: 600;
 }
@@ -100,21 +101,6 @@ header:hover #headerUl {
   border-bottom: 10px solid transparent; */
   margin: 15px 40px;
 }
-/* .main_background {
-  display: flex;
-  margin: 0 auto;
-  margin-left: 150px;
-  width: auto;
-  height: 500px;
-  background-color: bisque;
-  background-image: url(img/NABA\ 로고.png);
-  border: solid;
-} */
-/* #main_background {
-  width: auto;
-  height: 300px;
-  background-color: beige;
-} */
 .main_container {
   width: auto;
   height: 100%;
