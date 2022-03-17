@@ -1,3 +1,5 @@
+- # <a href ="https://sunnnkim.tistory.com/199" >JQuery</a>
+
 ## 왜 바닐라.js에서 jQuery로 넘어갔을까?
 
 ```
@@ -6,15 +8,14 @@
 3. 2018년 이후네는 React, Vue, 앵귤러 지금은 jQuery or React 사용!
 ```
 
-## jQuery Best 장점
+## JQuery 사용방법
 
 ```
-    1. 비동기 통신 지원
-    2. 같은 동작을 짧은 코드로 구현
-    3. 웹브라우저 구버전(익스플로러 등) 지원
-```
+1. 구글에 JQuery 입력 후
+2. JQuery CDN 들어가서 jQuery3 버전 minified 클릭
+3. 복사 후 body아래에 붙여넣기
 
-- # <a href ="https://sunnnkim.tistory.com/199" >JQuery</a>
+```
 
 ## jQuery 호출방법
 
@@ -28,12 +29,62 @@
     <script src="jquery-3.5.1.min.js"></script>
 ```
 
+## JQuery 개념
+
+```
+1. 바닐라.js(순수 자바스크립트)
+document.getElementBy
+                id,
+                className,
+                name
+: 태그를 불러 옴.
+-> 바닐라.js를 JQuery로 표현
+$('.className').css('display', 'block')
+
+->document.getElementBYclassName = $('.className')
+
+2. 자바스크립트는 데이터 타입이 없기 때문에 return에 function도 return 가능(return에 함수 구현 가능)(=클로저)
+
+
+```
+
+## 자주 사용하는 JQuery 태그!
+
+```
+1. show, hide
+2. append
+3. children
+*****4. val, text, focus
+*5. attr
+```
+
+## jQuery Best 장점
+
+```
+    1. 비동기 통신 지원
+    2. 같은 동작을 짧은 코드로 구현
+    3. 웹브라우저 구버전(익스플로러 등) 지원
+```
+
 ## jQuery 문법 종류
 
 - ### 기본 문법
 
 ```
-$('선택자').함수();
+$('선택자').동작함수();
+
+1. 선택자 : 함수가 적용되기 원하는 요소
+2. 동작함수 : 선택된 요소에 원하는 동작을 설정
+ex)
+보기1) $('#children').on('click', function () {
+      console.log('hello word');
+    });
+
+보기2) function createItem() {
+      for (var i = 0; i < 5; i++) {
+        $('.row').append('<div class="item"></div>');
+      }
+    }
 ```
 
 - ### 시작함수
@@ -53,6 +104,9 @@ $('선택자').함수();
 2. class 호출 = $('.class이름')
 3. name 호출 = $('[name = name이름]')
 4. 시맨틱 태그(header,footer,section 등) 호출 = $('시맨틱태그') -> 아무것도 안붙임
+5. getter
+    var 변수이름 = $("p").html();
+    = p태그 내용을 변수이름에 가져옴.
 ```
 
 - ### 동작함수
@@ -71,5 +125,8 @@ $('선택자').함수();
     $(document).ready(function '함수이름'() {alert('자 게임을 시작하지'); } );
     = 위 코드를 해석해보면, 웹 페이지가 로드가 완료되면 경고창 1 을 출력하라라는 의미.
     = alert('내용')의 의미는 경고창(알림창)에 '내용 출력'
-
+5. .on(준비하다) :
+    $('#children').on('click', function () { }); -> (=바인딩)
+    = 이벤트를 받을 준비
+    = 함수 중에 function() : 익명 함수
 ```

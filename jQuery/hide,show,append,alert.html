@@ -41,6 +41,8 @@
   <body>
     <div id="popup" class="popup">
       <div id="close" class="close" onclick="closePopup()"></div>
+      <p id="ptag" >hello p tag</p>
+      <p>hello p tag</p>
     </div>
     <!-- 컨텐츠 외적인 것은 container 밖에 작성! -->
     <div class="container">
@@ -55,6 +57,11 @@
             //웹페이지가 로드가 완료 후에 해당 함수를 실행합니다.
             	alert('자 게임을 시작하지'); 
             });
+$(function(){
+              $('#ptag').click(function(){
+                alert('p tag 클릭 했다!!!');
+              })
+            })
 function closePopup() {
       // 바닐라 js 문법 (까먹으면 죽음 of 죽음 / 데쓰or 데쓰)
       // (2번,3번은 jQuery) 1번,2번,3번 모두 같은 내용

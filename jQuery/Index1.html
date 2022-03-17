@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .row {
+        display: flex;
+        width: 1000px;
+        height: 500px;
+        margin: 50px auto;
+        border: solid;
+      }
+      .item {
+        flex-basis: 10%;
+        background-color: #777;
+        border: 1px solid black;
+      }
+      button {
+        font-size: 30px;
+        padding: 3%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button onclick="createItem()">append</button>
+      <button id="children">children</button>
+      <div class="row">
+        <!-- this는 본인을 의미
+             super 부모를 의미 -->
+        <div class="item" onclick="clickItem(this)">한가람 식당</div>
+        <!-- *절차지향 프로그래밍
+            -> C, 코볼 ...
+            *객체지향 프로그래밍
+            -> 자바, 파이썬, js, node, 리액트, C++ ...
+             -->
+      </div>
+    </div>
+  </body>
+  <!-- jQuery CDN -->
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    function clickItem(value) {
+      console.log(value);
+    }
+    //   .on : 이벤트를 받을 준비
+    // 아래 함수 중에 function : 익명 함수
+    // 자바스크립트는 매개변수로 함수가 가능하다.(자바는 X)
+    // .on('click', function () {}) = click이 준비되면 function을 실행하라
+    $('#children').on('click', function () {
+      // 자식카운트
+      var len = $('.row').children().length;
+      console.log(len);
+      //   자식 요소 접근
+      //   .children() 자식 태그 정보 호출
+      console.log($('.row').children()[0].innerText);
+    });
+
+    function createItem() {
+      // 버튼을 1번 클릭하면 아이템이 5개가 한번에 만들어짐
+      var len = $('.row').children().length;
+      if (len < 6) {
+        for (var i = 0; i < 5; i++) {
+          $('.row').append('<div class="item"></div>');
+        }
+      } else {
+        alert('아이템의 길이가6이 넘었습니다.');
+      }
+      //   if ($('row').children().length <= 6) {
+      //     $('.row').alert('길이가 6이 넘었습니다.');
+      //   }
+    }
+  </script>
+</html>
