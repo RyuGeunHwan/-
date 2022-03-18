@@ -119,10 +119,12 @@
             alert($('#myMenu').children()[i].innerHTML + ' 재료 소진입니다.');
             return false;
           }
+          // i = 0 != len = 5 -1
           if (i == len - 1) {
-            // 배열안의 인덱스 순서는 길이보다 1이 작아야 같다.
+            //when? (i == 4)
+            //배열안의 인덱스 순서는 길이보다 1이 작아야 같다.
             menu += $('#myMenu').children()[i].innerText;
-            break;
+            break; //for문 전체 stop!
           }
           menu += $('#myMenu').children()[i].innerText + ',';
         }
