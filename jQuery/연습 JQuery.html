@@ -37,27 +37,41 @@
       <h5>3-1. 이름을 입력하면 아래 나오게 하기</h5>
       <h5>[완성본]3-2. 다지우기 버튼을 만들기</h5>
       <input id="input-q3" type="text" />
-      <button onclick="q3()">클릭</button>
+      <button onclick="q3()">이름 붙이기</button>
+      <button onclick="q3_remove()">모두 지우기</button>
       <ul id="names-q3"></ul>
     </div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     function q1() {
-      if ($('#input-q1') == '') {
+      var value = $('#input-q1').val();
+      if (value == '') {
         alert('입력하세요!');
-        return false;
       } else {
-        alert($('#input-q1'));
+        alert(value);
       }
     }
     function q2() {
-      var email = $('#input-q2').val();
+      let email = $('#input-q2').val();
       if (email.includes('@')) {
-        var domainWithDot = email.split('@')[1];
-        alert(domainWithDot);
+        let domainWithDot = email.split('@')[1];
+        //h46344@naver.com을 입력하면 domainWithDot = {'h46344','naver.com'} -> [1]이기 때문에 ['naver.com']을 domainWithDot에 대입
+        let onlyDomain = domainWithDot.split('.')[0];
+        //domainWithDot = {'naver.com'}에서 split('.')이기 때문에 '.'을 기준으로 배열 나뉨->{'naver','com'}중에 [0]인 ['naver']만 onlyDomain에 대입
+        alert(onlyDomain);
+      } else {
+        alert('이메일이 아닙니다.');
       }
     }
-    function q3() {}
+    function q3() {
+      var q3Value = $('#input-q3').val();
+      if (q3Value == '') {
+        alert('이름을 입력 하시오.');
+      }
+      var temp_html = `<li>${q3Value}</li>`;
+      $('#names-q3').append(temp_html);
+    }
+    function q3_remove() {}
   </script>
 </html>

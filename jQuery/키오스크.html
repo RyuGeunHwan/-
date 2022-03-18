@@ -96,6 +96,11 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+    <!-- 문제 -->
+    <!--  1. 메뉴선택하면 mymenu로 이동
+          2. 주문 버튼 누르면 선택한 메뉴와 수량 알람
+          3. 메뉴 선택없이 주문 누르면 '메뉴 선택해주세요' 알람
+          4. 곱창파스타 MY MENU에 들어가면 '곱차 파스타 재료가 소진 되었습니다' 알림창 출력 -->
     <script>
       function removeItem(val) {
         console.log(val);
@@ -114,7 +119,6 @@
             alert($('#myMenu').children()[i].innerHTML + ' 재료 소진입니다.');
             return false;
           }
-
           if (i == len - 1) {
             // 배열안의 인덱스 순서는 길이보다 1이 작아야 같다.
             menu += $('#myMenu').children()[i].innerText;
