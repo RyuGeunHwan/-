@@ -8,6 +8,12 @@
 3. 2018년 이후네는 React, Vue, 앵귤러 지금은 jQuery or React 사용!
 ```
 
+## JQuery 사용 이유
+
+```
+1. HTML에서JAVA로 데이터 베이스를 넘길 때 JQuery를 사용하여 넘김!
+```
+
 ## JQuery 사용방법
 
 ```
@@ -56,6 +62,13 @@ $('.className').css('display', 'block')
 5. 메소드체이닝
     5-1) $().val().trim() -> 메소드(val,trim 등)를 n개이상 연결되어 있는 함수!
     5-2) 메소드체이닝을 사용할 수 있는 것은 메소드에 return값이 있어야만 사용 가능!
+
+6. 속성이란?
+    6-1) ex) <input type="text" id="id1" name="name1"  />
+        -input의 속성 = type,id,name
+
+        -input태그의 id값을 가져오고 싶을경우 = $("input").attr("id")
+        -input태그의 name값을 가져오고 싶을경우 = $("#id1").attr("name")
 ```
 
 ## 자주 사용하는 JQuery 태그!
@@ -156,5 +169,9 @@ ex)
     = 손자태그까지 써줘야한다.
     =$('조부모태그').find(); 이렇게 사용할 시에는 자식태그,손자태그 정보까지 다 나오기때문에 손자태그를 찾기 복잡하다
 
+8. attr(속성을 가져오는 함수)
+    $('선택자').attr('속성') = 속성의 값을 가져올 때
+    $('div').attr('id','main_div'); = 속성의 값을 변경할 때
+    (div태그의 id의 속성의 값을 main_div로 변경)
 
 ```
