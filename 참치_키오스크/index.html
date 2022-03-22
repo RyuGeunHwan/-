@@ -26,7 +26,7 @@
             <div class="menu-info">
               <h6>참다랑어 뱃살</h6>
               <p>숙성 : <span>8일 숙성</span></p>
-              <p>가격 : <span id="price">22,000</span></p>
+              <p>가격 : <span id="price1">22,000</span></p>
               <a href="#">담기</a>
             </div>
           </div>
@@ -35,7 +35,7 @@
             <div class="menu-info">
               <h6>참다랑어 뱃살</h6>
               <p>숙성 : <span>2일 숙성</span></p>
-              <p>가격 : <span id="price">10,000</span></p>
+              <p>가격 : <span id="price2">10,000</span></p>
               <a href="#">담기</a>
             </div>
           </div>
@@ -44,7 +44,7 @@
             <div class="menu-info">
               <h6>참다랑어 등살</h6>
               <p>숙성 : <span>3일 숙성</span></p>
-              <p>가격 : <span id="price">12,000</span></p>
+              <p>가격 : <span id="price3">12,000</span></p>
               <a href="#">담기</a>
             </div>
           </div>
@@ -53,7 +53,7 @@
             <div class="menu-info">
               <h6>참다랑어 뱃살</h6>
               <p>숙성 : <span>5일 숙성</span></p>
-              <p>가격 : <span id="price">16,000</span></p>
+              <p>가격 : <span id="price4">16,000</span></p>
               <a href="#">담기</a>
             </div>
           </div>
@@ -62,7 +62,7 @@
             <div class="menu-info">
               <h6>참다랑어 스페셜 세트</h6>
               <p>숙성 : <span>5일 숙성</span></p>
-              <p>가격 : <span id="price">32,000</span></p>
+              <p>가격 : <span id="price5">32,000</span></p>
               <a href="#" style="color: red">품절</a>
             </div>
           </div>
@@ -82,7 +82,9 @@
     ></script>
     <script>
       //소스 구현
-
+      // $(function () {
+      //   alert('상원 참치에 오신것을 환영합니다.');
+      // });
       // 1번 문제: 전체 메뉴, 오늘의 메뉴, 베스트 메뉴를 클릭하게 되면
       // 클릭한 메뉴에 아래 css를 적용할 것
       // background-color: #ffffff;
@@ -99,11 +101,29 @@
 
       // 2번 문제: 메뉴 담기를 클릭하면 총 주문 금액에 가격 표기할 것
       // 단, 참다랑어 세트는 품절이기 때문에 총 주문 금액에 포함될 수 없다.
-      $('a').on('click', function () {
-        var price = $('#price').text().replace(',', '');
-        price = parseInt(price);
-        $('.order p span').html(price);
-        console.log(price);
+      $('a').on('click', function (val) {
+        var price1 = $('#price1').text();
+        var price2 = $('#price2').text();
+        var price3 = $('#price3').text();
+        var price4 = $('#price4').text();
+        var price5 = $('#price5').text();
+        var array = new Array();
+        array.push(price1);
+        array.push(price2);
+        array.push(price3);
+        array.push(price4);
+        array.push(price5);
+        var price = '';
+        for (var i = 0; i < array.length; i++) {
+          price = array[i].replace(',', '');
+          price = parseInt(price);
+          // var price = $('array[i]').text().replace(',', '');
+          console.log(price);
+        }
+        // var price = $('#price').text().replace(',', '');
+        // price = parseInt(price);
+        // $('.order p span').html(price);
+        // console.log(price);
       });
 
       // var priceSpantag = $('.menu-info p span:eq(4)').text();
