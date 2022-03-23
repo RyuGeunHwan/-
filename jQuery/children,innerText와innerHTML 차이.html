@@ -41,11 +41,13 @@
     <script>
       var container = $('.container');
       var containerChildren = $('.container').children();
+      // container의 자식인 ul을 가르킴!
 
       //console.log() 3개 다 동일한 값이 나온다.
       //   console.log(container.children());
       //   console.log(containerChildren);
       //   console.log($('.container').children())
+      console.log($('.container').children());
       console.log($('.container').children()[0].children[0].innerHTML);
       console.log($(container).children()[0].children[1].innerHTML);
       console.log(containerChildren[0].children[2].innerHTML);
@@ -58,6 +60,8 @@
       var len = containerChildren[0].children.length;
       for (var i = 0; i < len; i++) {
         var innerText = containerChildren[0].children[i].innerText;
+        // containerChildren[0] = .container자식인 ul의 0번째인덱스(=<li id="boxing">복싱</li>)
+        // 결과값 = innerText이므로 '복싱'만 나온다.
         var innerHTML = containerChildren[0].children[i].innerHTML;
         // innerText : text만 보여줌.
         // innerHTML : html 태그와 text를 보여줌!
@@ -69,15 +73,17 @@
         console.log(user);
         for (var i = 0; i < len; i++) {
           var id = user[i].id;
+          // user[i].id = $('.text-wrapper').children()[0,1]의 id 값
           console.log(id);
           // value찾는 첫번째 방법
           var value = user[i].value;
+          // user[i].value = $('.text-wrapper').children()[0,1]의 value 값
           console.log(value);
           // value찾는 두번째 방법
           console.log($('#' + user[i].id).val());
           // '#' + user[i].id -> 문자열을 합치는 문장!
           // user.id = userName
-          // ('#' + user[i].id) = ('#userName')
+          // '#' + user[i].id 와 '#userName' 은 같다.
         }
       }
     </script>
