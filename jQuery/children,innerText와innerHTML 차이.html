@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        margin: 50px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <li id="boxing">복싱</li>
+        <li><p>수영</p></li>
+        <li>유도</li>
+        <li>헬스</li>
+        <li>레슬링</li>
+      </ul>
+      <ul></ul>
+      <div>사격</div>
+    </div>
+    <!-- for문 이용해서 input id와 value console.log 프린트! -->
+    <div class="text-wrapper">
+      <input id="userName" type="text" value="박카스" />
+      <input id="userEmail" type="text" value="박카스@gmail.com" />
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var container = $('.container');
+      var containerChildren = $('.container').children();
+
+      //console.log() 3개 다 동일한 값이 나온다.
+      //   console.log(container.children());
+      //   console.log(containerChildren);
+      //   console.log($('.container').children())
+      console.log($('.container').children()[0].children[0].innerHTML);
+      console.log($(container).children()[0].children[1].innerHTML);
+      console.log(containerChildren[0].children[2].innerHTML);
+      console.log($('.container').children()[2].innerText);
+
+      // 복싱 id 이름 찾기
+      console.log($('.container').children()[0].children[0].id);
+      // for문 이용해서 li 찾기
+      console.log(containerChildren[0].children.length);
+      var len = containerChildren[0].children.length;
+      for (var i = 0; i < len; i++) {
+        var innerText = containerChildren[0].children[i].innerText;
+        var innerHTML = containerChildren[0].children[i].innerHTML;
+        // innerText : text만 보여줌.
+        // innerHTML : html 태그와 text를 보여줌!
+        console.log(innerText);
+        // console.log(innerHTML);
+        // for문 이용해서 input id와 value console.log 프린트!
+        var user = $('.text-wrapper').children();
+        var len = user.length;
+        console.log(user);
+        for (var i = 0; i < len; i++) {
+          var id = user[i].id;
+          console.log(id);
+          // value찾는 첫번째 방법
+          var value = user[i].value;
+          console.log(value);
+          // value찾는 두번째 방법
+          console.log($('#' + user[i].id).val());
+          // '#' + user[i].id -> 문자열을 합치는 문장!
+          // user.id = userName
+          // ('#' + user[i].id) = ('#userName')
+        }
+      }
+    </script>
+  </body>
+</html>

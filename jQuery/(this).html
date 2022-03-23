@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- this -->
+    <div class="member">
+      <p onclick="doClick(1)">강인석</p>
+      <p onclick="doClick(100)">류근환</p>
+      <p onclick="doClick(this)">김준수</p>
+      <p onclick="doClick(this)"><a href="#">오승택</a></p>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function doClick(val) {
+        console.log(val);
+        // 결과값 : 함수 doClick(값)의 값이 출력
+        // this일 경우 자기 자신을 가르키는 것이기 때문에 click한 요소의 정보들이 다 나옴!
+        console.log($(val).html());
+        // 오승택 클릭 결과값 : <a href="#">오승택</a>
+        // 나머지는 p태그 안에 html이 존재 하지 않아서 결과값 안뜸!
+      }
+    </script>
+  </body>
+</html>
