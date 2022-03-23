@@ -21,7 +21,12 @@
         </div>
         <div class="pass">
           <label for="login-status">로그인 상태 유지</label>
-          <input type="checkbox" id="login-status" value="stay" />
+          <input
+            type="checkbox"
+            id="login-status"
+            value="stay"
+            onclick="clickCheckbox()"
+          />
         </div>
         <input
           class="login-btn"
@@ -41,24 +46,38 @@
       //로직 구현
       function loginButton() {
         var userId = $('#userId').val().replaceAll(' ', '');
+        userId = userId.toLowerCase();
         console.log(userId);
         var idLen = userId.length;
         console.log(idLen);
         var userPassword = $('#userPassword').val().replaceAll(' ', '');
+        userPassword = userPassword.toLowerCase();
         console.log(userPassword);
         var passwordLen = userPassword.length;
         console.log(passwordLen);
         if (idLen > 30) {
-          console.log('글자수는 30글자 미만으로 제한합니다.');
+          alert('글자수는 30글자 미만으로 제한합니다.');
+          $('#userId').focus();
         } else if (passwordLen > 30) {
-          console.log('글자수는 30글자 미만으로 제한합니다.');
+          alert('글자수는 30글자 미만으로 제한합니다.');
         }
         if (userId == '' || userPassword == '') {
-          console.log('로그인 할 수 없습니다.');
+          alert('로그인 할 수 없습니다.');
         } else {
-          console.log('로그인 완료');
+          confirm('로그인 완료');
         }
       }
+      function clickCheckbox() {
+        var check = $('#login-status').prop('checked');
+        if (check) {
+          confirm('해당 브라우저에 로그인 정보를 저장하시겠습니까?');
+        }
+      }
+      // $('#login-status').on('click', function () {
+      //   $('#login-status').toggle('hide');
+      //   confirm('해당 브라우저에 로그인 정보를 저장하시겠습니까?');
+      // });
+
       // 1번 문제: 아이디와 비밀번호를 입력해야 로그인버튼을 눌렀을 때
       //  '로그인 완료'라는 alert창 띄우기
 
