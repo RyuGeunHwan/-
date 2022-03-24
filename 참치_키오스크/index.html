@@ -164,20 +164,17 @@
           var totalOrder = $('#totalOrder').text().replace(',', '');
           totalOrder = parseInt(totalOrder);
           $('#totalOrder').html((totalOrder += price5));
-          if (totalOrder > 100000) {
-            return false;
-          }
           console.log(price5);
         }
       });
-      // $('a').click(function () {
-      //   if ($(totalOrder).text() > 100000) {
-      //     $('a').off('click');
-      //     alert('금액은 10만원을 넘길 수 없습니다.');
-      //     // return $('a').unbind(click);
-      //     location.reload();
-      //   }
-      // });
+      $('a').click(function () {
+        if ($(totalOrder).text() > 100000) {
+          $('a').off('click');
+          alert('금액은 10만원을 넘길 수 없습니다.');
+          // return $('a').unbind(click);
+          location.reload();
+        }
+      });
 
       // 3번 문제: 결제하기를 눌렀을 때 총 주문 금액이 0원 이면
       // '메뉴를 선택하세요!'라는 alert창 띄우기

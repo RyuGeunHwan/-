@@ -28,21 +28,38 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      $(function () {
-        //each : 제이쿼리 반복문
-        $('.container ul li').each(function (index, item) {
-          // .each() =  li의 index만큼 반복실행
-          if (index == 1) {
-            //index는 0부터 시작
-            console.log(' hello word');
-          }
-          console.log(index);
-          console.log($(item).html()); // item은 this를 의미함.
-          console.log($(this).html());
-          // this : 나 자신(해당 요소)
-          // this 와 super(부모태그의 해당요소) 꼭 검색해보기!
-        });
+      // each 사용법 두가지
+      //첫번째 사용법
+      // $.each(배열객체, function (index, item) {
+      //   console.log(index);
+      //   console.log(item);
+      // });
+      // ex)
+      $.each($('.container ul').children(), function (index, item) {
+        console.log(item);
       });
+
+      //두번째 사용법
+      // $(선택자).each(function (index, item) {
+      //   console.log(index);
+      //   console.log(item);
+      // });
+
+      // $(function () {
+      //   //each : 제이쿼리 반복문
+      //   $('.container ul li').each(function (index, item) {
+      //     // .each() =  li의 index만큼 반복실행
+      //     if (index == 1) {
+      //       //index는 0부터 시작
+      //       console.log(' hello word');
+      //     }
+      //     console.log(index);
+      //     console.log($(item).html()); // item은 this를 의미함.
+      //     console.log($(this).html());
+      //     // this : 나 자신(해당 요소)
+      //     // this 와 super(부모태그의 해당요소) 꼭 검색해보기!
+      //   });
+      // });
     </script>
   </body>
 </html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        // var와 let의 차이점
+        // var는 같은 변수 이름을 생성하더라도 허용 된다.
+        // let은 같은 변수 이름을 생성하면 중복 안됨.
+
+        //json key와 value로 이루어 진다. ex) key : value
+        //key는 변수 명이고 value는 데이터 타입으로 이루어져있다.
+
+        var jsonData = {
+          // json
+          name: '포항폭탄주이모',
+          age: 40,
+          addr: '포항',
+          family: {
+            dad: '신형만',
+            mom: '봉미선',
+            son: '짱구',
+          },
+        };
+        console.log(jsonData);
+        console.log('dad 이름 출력 = ' + jsonData.family.dad); // json안에 json 데이터 접근!!(family는 json안에 json이다.)
+        console.log(
+          '==============================================================',
+        );
+        // 배열안에 있는 json
+        var jsonData2 = [
+          { name: '짱구', family: { dad: '신형만', mom: '봉미선' } },
+          { name: '유리' },
+          { name: '맹구' },
+          { name: '훈이' },
+          { name: '철수' },
+        ];
+        console.log(jsonData2);
+        console.log('mom 이름 출력 = ' + jsonData2[0].family.mom);
+
+        console.log(
+          '==============================================================',
+        );
+        //총합 더하기
+        var jsonData3 = [
+          { sal: 3000, sum: { min: 1, max: 10 } },
+          { sal: 5000 },
+          { sal: 4400 },
+          { sal: 2300 },
+        ];
+
+        // 새로운 방법
+        // 구글링 해보기 -> (forEach)
+        // 찍어보기 -> console.log(element)
+        var newsum = 0;
+        jsonData3.forEach(function (element) {
+          newsum += element.sal;
+        });
+        console.log('sal의 총합은? ' + newsum);
+
+        // 기존 for문 방법
+        var sum = 0;
+        var num = 0;
+        var count = 0;
+        for (var i = 0; i < jsonData3.length; i++) {
+          console.log(jsonData3[i]);
+          console.log('jsonData3 :  sal = ' + jsonData3[i].sal);
+          sum += jsonData3[i].sal;
+          num = jsonData3[0].sum.min + jsonData3[0].sum.max;
+        }
+        console.log('min+max = ' + num);
+        console.log('sal의 총합은? ' + sum);
+        console.log(
+          '==============================================================',
+        );
+        var jsonData4 = {
+          name: '보노보노',
+          addr: '보노보노숲',
+          friend: ['너부리', '포로리', '야옹이형'],
+          family: [
+            { name: '보노보노아빠', age: 34 },
+            { name: '보노보노엄마', age: 30 },
+          ],
+          hobby: '낮잠',
+        };
+        //문제1. friend 길이를 구하시오.
+        //문제2. family 나이를 합산하시오.
+        //문제3. 보노보노의 취미를 낮잠에서 수영으로 변경하시오.
+        //문제4. saying이라는 key를 추가하고 value에 '포로리야 놀자'를 추가하시오.(검색가능)
+
+        //문제1.
+        console.log('jsonData4 : friend 길이는? ' + jsonData4.friend.length);
+
+        //문제2.
+        let sumFamliyAge = 0;
+        for (var i = 0; i < jsonData4.family.length; i++) {
+          sumFamliyAge += jsonData4.family[i].age;
+        }
+        console.log('jsonData4 : 보노보노 엄빠 나이 합산은? ' + sumFamliyAge);
+
+        //문제3.
+        if (jsonData4.hobby == '낮잠') {
+          let bonobonoHobby = jsonData4.hobby.replace('낮잠', '수영');
+          console.log(
+            'jsonData4 : 보노보노 취미 변경 = ' +
+              jsonData4.hobby +
+              ' -> ' +
+              bonobonoHobby,
+          );
+        }
+
+        //문제4.
+        //json 새로운 key , value 추가
+        jsonData4.saying = '포로리야 놀자';
+        console.log(jsonData4);
+
+        console.log(
+          '==============================================================',
+        );
+      });
+    </script>
+  </body>
+</html>

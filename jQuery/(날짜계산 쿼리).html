@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        margin: 100px auto;
+        width: 700px;
+        height: 500px;
+        background-color: bisque;
+        padding-top: 10%;
+      }
+      .container h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>JSON 존나 어렵네</h1>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var carData = [
+        {
+          no: 1,
+          driver: '박재범',
+          car: 'K5',
+          mileage: '30',
+          createAt: '2022-03-24 09:30:21',
+          endAt: '2022-03-24 10:30:55',
+        },
+        {
+          no: 2,
+          driver: '김종국',
+          car: 'K5',
+          mileage: '10',
+          createAt: '2022-03-24 10:55:12',
+          endAt: '2022-03-24 11:10:12',
+        },
+        {
+          no: 3,
+          driver: '박재범',
+          car: 'K5',
+          mileage: '5',
+          createAt: '2022-03-24 11:20:00',
+          endAt: '2022-03-24 11:30:12',
+        },
+        {
+          no: 4,
+          driver: '김종국',
+          car: 'K5',
+          mileage: '17',
+          createAt: '2022-03-24 12:00:30',
+          endAt: '2022-03-24 12:50:00',
+        },
+      ];
+      // carData배열 0번째 인덱스에서 시작시간과 종료시간을 변수에 대입
+      var start = carData[0].createAt;
+      var end = carData[0].endAt;
+      // step1. 문자를 날짜 형식으로 변경.
+      //new Date('날짜로 바꿀 함수 or 변수')
+      start = new Date(start);
+      // 운행 시작 시간은 날짜로 바꿈.
+      // 결과값 : Thu Mar 24 2022 09:30:21 GMT+0900 (한국 표준시)
+      console.log('운행 시작 시간 = ' + start);
+      end = new Date(end);
+      // 운행 종료 시간은 날짜로 바꿈.
+      // 결과값 : 운행 종료 시간 = Thu Mar 24 2022 10:30:55 GMT+0900 (한국 표준시)
+      console.log('운행 종료 시간 = ' + end);
+      console.log('-------------------------------------------');
+      // step2. 날짜를 초 단위로 변경.
+      // 언제 부터 인지 기준은 1970년 1월 1일 자정 부터 시작!
+      // Millisecond(밀리세컨드) 1000ms = 1s
+      console.log('언제 부터 인지 기준은 (1970년 1월 1일 자정) 부터 시작!');
+      console.log('시작 시간을 초 단위로 바꿈 = ' + start.getTime());
+      console.log('종료 시간을 초 단위로 바꿈 = ' + end.getTime());
+      console.log('-------------------------------------------');
+      // step3. 종료시간(초단위) - 시작시간(초단위)
+      // 연산자' / '= 나누기 몫 값!
+      // 1초는 === 1000ms(Millisecond), 1분 === 60초
+      // 1000 = 1초 / 1000 * 60(=60초) = 1분 / 1000 *60*60(=3600초 = 1시간) = 1시간
+      // 초으로 바꿔서 계산
+      var diffSecond = (end.getTime() - start.getTime()) / 1000;
+      console.log('운행 시간은?');
+      console.log('종료시간에서 시작시간을 뺀 초의 값은 ? ' + diffSecond);
+      // 분으로 바꿔서 계산
+      var diffMinute = (end.getTime() - start.getTime()) / (1000 * 60);
+      console.log('종료시간에서 시작시간을 뺀 분의 값은 ? ' + diffMinute);
+      // 시간으로 바꿔서 계산
+      var diffhour = (end.getTime() - start.getTime()) / (1000 * 60 * 60);
+      console.log('종료시간에서 시작시간을 뺀 시간의 값은 ? ' + diffhour);
+      // 날짜로 바꿔서 계산
+      var diffday = (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
+      console.log('종료시간에서 시작시간을 뺀 날짜의 값은 ? ' + diffday);
+    </script>
+  </body>
+</html>

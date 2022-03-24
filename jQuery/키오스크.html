@@ -106,6 +106,8 @@
         console.log(val);
         //   선택한 item을 myMenu에 추가(이동)한다.
         $('#myMenu').append(val);
+        // append : 추가한 내용이 기존 추가했던 내용 *이후에 추가된다.
+        // prepend : 추가한 내용이 기존 추가했던 내용 *이전에 추가된다.
         console.log($('#btn-order').text());
       }
       function doOrder() {
