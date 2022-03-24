@@ -36,15 +36,24 @@
       // });
       // ex)
       $.each($('.container ul').children(), function (index, item) {
+        console.log(index);
         console.log(item);
       });
-
+      console.log(
+        '====================================================================',
+      );
       //두번째 사용법
       // $(선택자).each(function (index, item) {
       //   console.log(index);
       //   console.log(item);
       // });
-
+      // ex)
+      $('.container ul')
+        .children()
+        .each(function (index, item) {
+          console.log(index);
+          console.log(item);
+        });
       // $(function () {
       //   //each : 제이쿼리 반복문
       //   $('.container ul li').each(function (index, item) {
