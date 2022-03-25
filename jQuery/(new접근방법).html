@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="text-wrapper">
+      <input id="참이슬" type="text" value="" />
+      <input id="대선" type="text" value="대선" />
+      <input id="여수밤바다" type="text" value="" />
+      <input id="한라산" type="text" value="한라산" />
+      <input id="린" type="text" value="린" />
+    </div>
+    <button>클릭</button>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $('button').on('click', function () {
+        // 클릭을 했을 때 input value 가져옴.(조건, 공백제거)
+        // 방법1. 요소(HTML 태그)에 ID를 지정.
+        // 단점 : input이 많아지면 코드도 길어짐
+        // ID접근은 '#'으로 / class접근은 '.'으로
+        var name = '참이슬';
+        var result = $('#' + name) //'#' + name = 문자열을 합치는 것이기 때문에 $('#참이슬')과 같다.
+          .val()
+          .trim(); // 메소드체이닝(=메소드를 이어주는것)
+        result = result.replaceAll(' ', '');
+        // console.log(result);
+
+        // 방법2. 부모(class="text-wrapper")와 자식(input)을 이용 한다. = children
+        // text-wrapper의 자식 정보가 textWrapperChildren에 대입!
+        var textWrapperChildren = $('.text-wrapper').children();
+        // console.log(textWrapperChildren); // children을 이용해서 자식정보를 상세히 알 수 있음.
+        // 배열 === 반복문(while, each, for)
+
+        for (var i = 0; i < textWrapperChildren.length; i++) {
+          // value를 가져옴 how???
+          var id = textWrapperChildren[i].id;
+          // $('.text-wrapper').children()인 input들의 id값을 변수 id에 대입
+          // id == '참이슬', '대선', '여수밤바다', '한라산', '린'
+          console.log(id);
+          var value = $('#' + id)
+            .val()
+            .trim();
+          var value = $('#참이슬').val().trim();
+          //$('#' + id) =='#참이슬', '#대선', '#여수밤바다', '#한라산', '#린'
+
+          console.log(value);
+          if (value == '') {
+            alert('필수 입력란 입니다.');
+            $('#' + id).focus();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

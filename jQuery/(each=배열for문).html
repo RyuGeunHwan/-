@@ -36,8 +36,8 @@
       // });
       // ex)
       $.each($('.container ul').children(), function (index, item) {
-        console.log(index);
-        console.log(item);
+        console.log(index); //$('.container ul').children()인 li의 인덱스 번호를 나타냄.[0,1,2,3]
+        console.log($(item)); //$('.container ul').children()인 li를 나타냄
       });
       console.log(
         '====================================================================',
@@ -51,8 +51,8 @@
       $('.container ul')
         .children()
         .each(function (index, item) {
-          console.log(index);
-          console.log(item);
+          console.log(index); //$('.container ul').children()인 li의 인덱스 번호를 나타냄.[0,1,2,3]
+          console.log(item); //$('.container ul').children()인 li를 나타냄
         });
       // $(function () {
       //   //each : 제이쿼리 반복문

@@ -2,6 +2,13 @@
 ```
 1. 데이터를 주고 받을 때 보내는 형식 or 파일
 (json을 주고 받는것은 jquery(AjAx)로 보낸다.)
+ex) 택배를 생각 하자! 
+물건 = JSON / 택배기사 = JQuery
+고객 = HTML, JAVA, DB
+          (JSON파일을 JQuery로 전송)          (JSON파일을 JQuery로 전송) 
+    HTML <    ------------------   >  JAVA   <   -------------------   >  DB
+*JSON을 잘 보냈는지 확인 하는 방법 = Postman(검색해보기)
+
 2. 표현방법 = 중괄호{ }로 표현
 3. 프론트엔드와 백엔드의 소통 방식
 4. index.html처럼 파일 형식으로 만들 수 있음. ex) index.json
