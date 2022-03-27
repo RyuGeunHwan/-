@@ -9,9 +9,12 @@ let array = [1, 10, 4, 3, 5];
 			for(var j=0; j<array.length-1; j++) { 
 				if(array[i]<array[j]) {
 					count++;
-					temp = array[i];
-					array[i] = array[j];
-					array[j] = temp;
+                    temp = array[i];
+                    // 배열 중 작은 수를 temp에 대입
+                    array[i] = array[j];
+                    // 배열 중 큰 수를 뒤로 빼기
+                    array[j] = temp;
+                    // 작은 수를 앞으로 보내기
 				}
 			}
 		}
@@ -20,7 +23,8 @@ let array = [1, 10, 4, 3, 5];
 		for(var i=0; i<size; i++) {
 			if(i == array.length-1) {
 				console.log(array[i]);
-				break;
+                break;
+                // 마지막 배열순서일 때 쉼표 없이 break
 			}
 			console.log(array[i]+",")
 		}
