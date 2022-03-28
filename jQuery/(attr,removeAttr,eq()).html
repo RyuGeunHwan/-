@@ -19,7 +19,7 @@
   </head>
   <body>
     <!-- id는 중복 불가능 -->
-    <div id="red" class="red">
+    <div class="red" id="red">
       <input id="order" type="text" value="아메리카노" />
       <select id="menu">
         <option value="none" selected>---커피를 선택하세요---</option>
@@ -34,8 +34,8 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      // 페이지 로딩시 맨 처음 실행 해주는 함수
       $(function () {
-        // 페이지 로딩시 맨 처음 실행 해주는 함수
         // alert('페이지에 오신걸 환영 합니다');
         // 풀이 = class이름이 red인 태그의 속성 중에 id속성을 변수id에 대입
         var id = $('.red').attr('id'); //attribute : 속성
@@ -44,7 +44,7 @@
         $('.red').attr('id', 'black'); //id이름을 red에서 black으로 변경(.attr(속성, 변경할 이름))
         //attr은 속성이름을 호출할 수도 있고, 속성 값을 수정 할 수도 있다.
         //attr(속성, 변경 값)
-        $('.red').attr('style', 'background-color : black'); //스타일 변경
+        $('.red').attr('style', 'background-color : blue'); //스타일 변경
 
         //문제1. input value를 가져와서, 해당 option에 selected
         var orderMenu = $('#order').val();
@@ -77,6 +77,8 @@
             $('#menu option:eq(0)').removeAttr('selected'); //.removeAttr('속성'): 속성 지우기
             $('#menu option:eq(2)').removeAttr('selected');
             $('#menu option:eq(3)').removeAttr('selected');
+            console.log($('#menu option'));
+
             // 0번째,2번째,3번째 option의 selected 속성 지우기(removeAttr)
           }
           if (orderMenu === '카페라떼') {
@@ -84,12 +86,14 @@
             $('#menu option:eq(0)').removeAttr('selected');
             $('#menu option:eq(1)').removeAttr('selected');
             $('#menu option:eq(2)').removeAttr('selected');
+            console.log($('#menu option'));
           }
           if (orderMenu === '아이스티') {
             $('#menu option:eq(2)').attr('selected', 'selected');
             $('#menu option:eq(0)').removeAttr('selected');
             $('#menu option:eq(1)').removeAttr('selected');
             $('#menu option:eq(3)').removeAttr('selected');
+            console.log($('#menu option'));
           }
         }
       });
