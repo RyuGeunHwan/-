@@ -19,6 +19,12 @@ SELECT * FROM restaurant WHERE foodNo = 30 AND restaurantName= '빠스타스';
 가장 먼저해야하는 바람직한 행동은?
 답안 작성 => 
 1. 인덱스를 생성한다!
+    1-1)인덱스 생성
+    ALTER TABLE 테이블명 ADD INDEX 인덱스명 ( 컬럼명 );
+
+    1-2)인덱스 추가 생성
+    CREATE INDEX 인덱스명 ON 테이블명 ( 컬럼명1, 컬럼명2, ... );
+
 2. 프로시저 생성해서 사용한다!
 */
 
