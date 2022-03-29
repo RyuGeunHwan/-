@@ -62,7 +62,11 @@
             return false;
           }
         }
-
+        // 이메일 선택 여부
+        if ($('#emailList option:selected').val() === 'none') {
+          alert('이메일을 선택 해주세요');
+          return false;
+        }
         // 문제 2.
         if (input.eq(3).val().match('-')) {
           console.log('문제 2번 = ' + input.eq(3).val().replaceAll('-', ''));
@@ -98,12 +102,11 @@
       // 문제4.
       function submitData() {
         let jsonData = {};
-        var phoneNumber = $('#phoneNumber').val().replaceAll('-', '');
         jsonData.userName = $('#userName').val();
         jsonData.nickName = $('#nickName').val();
         jsonData.email =
           $('#email').val() + '@' + $('#emailList option:selected').text();
-        jsonData.phoneNumber = phoneNumber;
+        jsonData.phoneNumber = $('#phoneNumber').val().replaceAll('-', '');
         console.log(jsonData);
       }
 
