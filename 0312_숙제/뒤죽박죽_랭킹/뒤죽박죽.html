@@ -104,7 +104,50 @@
     ></script>
     <script>
       // 소스 작성
-      /* 
+      $('button').on('click', function () {
+        // 문제 1.
+        for (var i = 0; i < $('.input-wrapper input').length; i++) {
+          if ($('.input-wrapper input').eq(i).val() == '') {
+            $('.input-wrapper input').eq(i).focus();
+            console.log('데이터를 입력해주세요!');
+            return false;
+          }
+        }
+        // 문제 2.
+        var office = '';
+        var array = new Array();
+        array = ['New York', 'San Francisco', 'London'];
+        for (var i = 0; i < array.length; i++) {
+          // var tbodyTr = $('tbody tr').eq(i);
+          // office = tbodyTr.children()[3].innerText;
+          array[i] = array[i].replaceAll(' ', '').toLowerCase();
+          if ($('#loc').val().replaceAll(' ', '').toLowerCase() == array[i]) {
+            console.log('부서가 맞습니다');
+            return false;
+          } else {
+            console.log('잘못 입력되었습니다');
+          }
+        }
+        // 문제 3.
+        // input value에 값을 입력하고 사원등록 click하면 랭킹 번호는 자동으로 1씩 증가(auto increment)
+        // 방법1. count++해서 얼럿창에 count + '번 이후 번호를 작성 하여주세요'
+        // 방법2. .append(count++)
+
+        // 문제 4.
+        // 방법 1.
+        // jsonData함수를 만들어서
+        // jsonData.no = $('#rank').val;
+        // jsonData.name = $('#name').val;
+        // jsonData.job = $('#job').val;
+        // jsonData.loc = $('#loc').val;
+        // jsonData.hiredate = $('#hiredate').val;
+        // input의 입력 값을 json에 넣기
+
+        // 방법 2.
+        // tr이라는 배열을 append해서 값으로 td를 추가
+      });
+
+      /*
       1번 문제: 사원등록 버튼을 클릭 했을 때 랭킹 부터 입사날짜까지 빈공간이 있으면
       '데이터를 입력해주세요!' alret 띄우고, 빈공간을 입력한 input에 focus를 하시오.
       2번 문제: Office는 	New York, San Francisco, London 중 한 곳입니다.
