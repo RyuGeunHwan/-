@@ -55,6 +55,8 @@
       $('#join').click(function () {
         var jsonParam = {};
         // 키값에 변수적용 됨. [ ] 사용시
+        // 변수의 값을 키값으로 적용시키고 싶으면 이 방법을 사용!
+        //
         // jsonParam.phone = '010'
         // var elementID = 'iphone'
         // ***jsonParam[elementID] = '010'
@@ -86,8 +88,11 @@
           if (
             // 또는(||)을 괄호로 묶어주는 이유는 묶어주지 않으면 그리고(&&)가 먼저 실행되기 때문에
             // 실행 순서가 꼬임( ||을 먼저 실행하기 위해서는 비교할것들을 괄호로 묶어준다.)
+
+            // 정규표현식 작성!
             (elementID === 'userName' || elementID === 'nickName') &&
-            elementValue.length >= 20
+            elementValue.length >= 20 &&
+            !checkName(elementValue)
           ) {
             alert('20글자 제한');
             return false;
@@ -116,6 +121,11 @@
       // 받은 json을 서버로 보내는 함수
       function dojoin(jsonParam) {
         console.log(jsonParam); // json 출력
+      }
+      function checkName(elementValue) {
+        var regName = /^[가-힣]+$/;
+        var isName = regName.test(elementValue);
+        return isName;
       }
     </script>
   </body>
