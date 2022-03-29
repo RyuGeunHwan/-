@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="forms">
+      <input id="name" type="text" value="류근환" />
+      <input id="hobby" type="text" value="웨이트트레이닝" />
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // var name = $('#name').val();
+      // var hobby = $('#hobbt').val();
+
+      // 방법1.
+      // var jsonData = {};
+      // jsonData.name = '류근환';
+      // jsonData[name] = '학생';
+      // // []을 사용하게 되면 변수(name)의 값이 json의 키값이 된다.
+      // console.log(jsonData);
+
+      // 방법 2.
+      // var jsonData = {};
+      // var formsChilderen = $('#forms').children();
+      // console.log(formChilderen);
+      // for (var i = 0; i < formsChilderen.length; i++) {
+      //   var inputId = formsChilderen[i].id;
+      //   var inputValue = $('#' + inputId).val();
+      //  //$('#' + inputId) == $('#id이름')
+      //   console.log('input의 id 값은? = ' + inputId);
+      //   console.log(inputValue);
+      //   jsonData[inputId] = inputValue;
+      // }
+      // console.log(jsonData);
+
+      submitServer(jsonData);
+      function submitServer(param) {
+        // 서버에 보내는 로직 구현~(with JQuery)
+        // param 변수를 서버에 보내자!
+      }
+    </script>
+  </body>
+</html>

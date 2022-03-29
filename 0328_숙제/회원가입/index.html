@@ -64,11 +64,10 @@
         }
 
         // 문제 2.
-        if (input.eq(3).val()) {
+        if (input.eq(3).val().match('-')) {
           console.log('문제 2번 = ' + input.eq(3).val().replaceAll('-', ''));
         }
         // 문제 3.
-
         if (input.eq(0).val().length <= 20 && input.eq(1).val().length <= 20) {
           if (
             !doCheckUserName(input.eq(0).val()) ||
@@ -87,6 +86,7 @@
         } else {
           alert('동의여부를 체크해주세요!');
           $('#agreement').prop('checked', true);
+          return false;
         }
         submitData();
       }
@@ -98,11 +98,12 @@
       // 문제4.
       function submitData() {
         let jsonData = {};
+        var phoneNumber = $('#phoneNumber').val().replaceAll('-', '');
         jsonData.userName = $('#userName').val();
         jsonData.nickName = $('#nickName').val();
         jsonData.email =
           $('#email').val() + '@' + $('#emailList option:selected').text();
-        jsonData.phoneNumber = $('#phoneNumber').val();
+        jsonData.phoneNumber = phoneNumber;
         console.log(jsonData);
       }
 
