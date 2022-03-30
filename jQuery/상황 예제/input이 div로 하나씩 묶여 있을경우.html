@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //  script를 위에 쓰고 싶으면 페이지 켰을때 자동실행되는 함수$(function () {}) 안에 함수 입력!
+    //   $(function () {
+    //     $('.container').on('click', function () {
+    //       console.log('hello word');
+    //     });
+    //   });
+    </script> -->
+  </head>
+  <body>
+    <div class="forms">
+      <div class="input-box">
+        <input id="email" type="text" />
+      </div>
+      <div class="input-box">
+        <input id="name" type="text" />
+      </div>
+      <div class="input-box">
+        <input id="phone" type="text" />
+      </div>
+      <div class="input-box">
+        <input id="addr" type="text" />
+      </div>
+      <div class="input-box">
+        <input id="age" type="text" />
+      </div>
+    </div>
+    <button class="join" type="button">회원 가입</button>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var count = 0; //전역변수로 빼줘야함
+      $('.join').on('click', function () {
+        if (count >= 3) {
+          console.log(count);
+          alert('오늘은 회원가입을 할 수 없습니다!!!');
+          return false;
+          //3번 이상 잘못 입력 했을 시에 얼럿창 띄우기!
+        }
+        var formsChildren = $('.forms').children();
+        // $('.input-box')들이 나옴
+        console.log(formsChildren);
+        var inputBoxChildren = $('.input-box').children();
+        // input을 감싸는 부모의 이름이 같기 때문에($('.input-box')) input이 배열 형식으로 나온다.
+        // $('input')들이 나옴
+        console.log(inputBoxChildren);
+        var jsonData = {};
+        for (var i = 0; i < inputBoxChildren.length; i++) {
+          var elementId = inputBoxChildren[i].id;
+          // $('input').id들이 나옴
+          var elementValue = $('#' + elementId)
+            .val()
+            .trim();
+          if (elementValue === '') {
+            ++count; // input이 빈칸일 경우 카운트
+            console.log('input이 빈칸일 경우 카운트 ' + count);
+            alert('빈칸을 채워주세요!');
+            $('#' + elementId).focus();
+            return false;
+          }
+          if (elementId === 'email' && !doCheckEmail(elementValue)) {
+            ++count; // 이메일을 잘못 입력 했을 경우 카운트
+            console.log('이메일을 잘못 입력 했을 경우 카운트 ' + count);
+            alert('이메일 형식을 맞춰주세요!');
+            $('#' + elementId).focus();
+            return false;
+          }
+
+          // 변수 elementId의 값을 jsonData의 키값으로하는 함수 = jsonData[elementId]
+          jsonData[elementId] = elementValue;
+        } // 중괄호가 헷갈리면  주석으로 표기! // end for , // end if 등등
+        // console.log(jsonData);
+        doSubmit(jsonData);
+      });
+      function doCheckEmail(email) {
+        var regEmail =
+          /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+        var isEmail = regEmail.test(email);
+        return isEmail; // return type : boolean(= true or false)
+      }
+      // 받은 json을 서버로 보내는 함수
+      function doSubmit(jsonData) {
+        console.log(jsonData); // json 출력
+      }
+    </script>
+  </body>
+</html>
