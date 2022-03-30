@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div1"><h2>데이터 표시</h2></div>
+    <button id="btn">get load</button>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        $('#btn').click(function () {
+          // #btn을 클릭하면 #div1에 (find).html 파일에 있는 아이디가baby인 태그의 text()로 로드한다.
+          $('#div1').load('(find).html .baby', function () {
+            //.load('(find).html .baby')
+            // (find).html 파일에 있는 아이디가baby인 태그의 text()를 가져옴.
+            alert('전송 하였습니다.');
+            return false;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
