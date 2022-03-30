@@ -20,26 +20,36 @@
     <script>
       $('#btn').click(function () {
         var selectedDate = $('#reservation').val();
-        console.log(selectedDate);
+        // #reservation의 선택값을 selectedDate에 대입!
+        console.log('선택 날짜 문자형타입 = ' + selectedDate);
         // today = 오늘 날짜!
         var today = new Date(); // 문자타입에서 Date타입으로 변경
-        console.log(today); // 현재 날짜(데이터 타입 : date)
+        console.log('date타입으로 바꾼 현재 날짜= ' + today); // 현재 날짜(데이터 타입 : date)
         today = today.getTime() / (1000 * 60 * 60 * 24);
+        // 현재 날짜를 getTime()을 이용해서 Millisecond로 바꾼 후 / (1000 * 60 * 60 * 24)(=day로 나누기!)
         console.log(today);
+        // today를 아래처럼 메소드체이닝으로 작성해도 사용 가능!
+        // var today = new Date().getTime() / (1000 * 60 * 60 * 24);
 
         // selectedDate = 선택 날짜!
         selectedDate = new Date(selectedDate); // 문자타입에서 Date타입으로 변경
+        //#reservation의 문자형타입인 선택값을 date타입으로 바꿔줌.
+        console.log('date타입으로 바꾼 선택한 날짜= ' + selectedDate);
         selectedDate = selectedDate.getTime() / (1000 * 60 * 60 * 24);
+        // 선택한 날짜를 getTime()을 이용해서 Millisecond로 바꾼 후 / (1000 * 60 * 60 * 24)(=day로 나누기!)
         console.log(selectedDate);
+        // selectedDate를 아래처럼 메소드체이닝으로 작성해도 사용 가능!
+        // selectedDate = new Date(selectedDate).getTime() / (1000 * 60 * 60 * 24);
 
         // 방법 1.
-        if (selectedDate < today) {
-          alert('오늘 이전 날짜 입니다! 예약 할 수 없습니다.');
-          return false;
-        }
+        // if (selectedDate < today) {
+        //   alert('오늘 이전 날짜 입니다! 예약 할 수 없습니다.');
+        //   return false;
+        // }
 
-        // 방법 2.
-        var diffDay = today - selectedDate;
+        // 방법 2. 선호!!!!!!!!!!!!!
+        var diffDay = today.toFixed() - selectedDate.toFixed();
+        // .toFixed() = 소수점 자리수 제거
         console.log(diffDay);
         // 오늘이전의 날짜를 선택하면 *양수가 나옴.
         // 오늘이후의 날짜를 선택하면 *음수가 나옴.
