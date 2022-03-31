@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="my-github">
+      <h3 class="name"></h3>
+      <p class="followers"></p>
+      <p class="following"></p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>visibility</th>
+          <th>created_at</th>
+        </tr>
+      </thead>
+      <tbody id="list">
+        <!-- <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr> -->
+      </tbody>
+    </table>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- 동기 : 요청과 결과가 한 자리에서 동시에 일어남,
+        결과가 주어질 때까지 아무것도 못하고 대기해야 하는 단점 -->
+
+    <!-- 비동기 : 요청한 그 자리에서 결과가 주어지지 않음,
+        결과가 주어지는데 시간이 걸리더라도 그 시간 동안 
+        다른 작업을 할 수 있으므로 자원을 효율적으로 사용 -->
+
+    <script>
+      // 전송하는 방법  =  (동기 전송,  비동기 전송)
+      // ajax defalut value : 비동기 전송
+      // tip) 사진보내는 것은 비동기 전송으로!
+      // ex) 카카오톡에서 사진을 전송 중이더라도 다른 것을 할 수 있는것.
+      $.ajax({
+        url: 'https://api.github.com/users/RyuGeunHwan', // 목적지 주소
+        type: 'GET', // GET = 데이터조회(select),
+        dataType: 'json', // API서버에서 오는 데이터 타입 정의(= dataType타입이 json임!)
+        // = github에서 정보를 가지고 올 수 있는 token key(시간당 5000번)
+        // 깃허브 업로드시 headers 키 삭제!
+        success: function (data) {
+          // 서버 요청에 성공하면! API에서 받아온 정보를 변수 data에 대입(json으로)!
+          console.log(data);
+          // data의 json에서 팔로워 && 팔로잉 출력
+          console.log('name => ' + data.name);
+          console.log('followers => ' + data.followers);
+          console.log('following => ' + data.following);
+          doAppend(data);
+        },
+        error: function (request, status, error) {
+          // 서버 요청에 실패하면!
+          console.log(request);
+          if (request.status == 403) {
+            alert('권한이 없습니다.');
+          }
+          // 에러 결과 값에
+          // 404 = 없는 주소
+          // 500 = 서버 내부 결함
+          // 403 = 권한 없음.
+          //(404,500,403... = HTTP ERROR CODE)
+        },
+      }); // ajax 선언!
+      function doAppend(data) {
+        $('.name').append(data.name);
+        $('.followers').append(data.followers);
+        // data.followers값을 클래스이름이 followersd인 값에 append 한다.
+        $('.following').append(data.following);
+      }
+      console.log(
+        '=====================================================================================',
+      );
+      $.ajax({
+        url: 'https://api.github.com/users/RyuGeunHwan/repos',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          console.log(data);
+          var arr = [{ key: 1 }, { key: 2 }];
+          console.log(arr);
+          for (var i = 0; i < arr.length; i++) {
+            console.log('arr의 key값 => ' + arr[i].key);
+          }
+          for (var i = 0; i < data.length; i++) {
+            var html =
+              '<tr><td>' +
+              data[i].id +
+              '</td><td>' +
+              data[i].name +
+              '</td><td>' +
+              data[i].visibility +
+              '</td><td>' +
+              data[i].created_at +
+              '</td></tr>';
+            $('#list').append(html);
+            console.log(html);
+          }
+        },
+        error: function (request, status, error) {
+          if (request.status == 403) {
+            alert('권한이 없다네?');
+          }
+        },
+      });
+    </script>
+  </body>
+</html>
