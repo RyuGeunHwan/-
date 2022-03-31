@@ -11,7 +11,7 @@
 
 - ## ajax 기본 문법
 
-```
+```cs
 $.ajax({
         1. url: (API주소) 데이터를 가지고 올 API주소 or 파일 등
         2. type: HTTP method type(GET, POST, DELETE, PATCH, PUT...)
