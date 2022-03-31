@@ -55,10 +55,12 @@
       var sum = 0;
       var avg = 0;
       var max = 0;
-      let moviesCreatedAt = '';
+      var min = 0;
+      let moviesMaxCreatedAt = '';
+      let moviesMinCreatedAt = '';
       for (var i = 0; i < movies.length; i++) {
-        console.log(movies[i]);
-        console.log(movies[i].name + movies[i].createdAt + movies[i].rank);
+        // console.log(movies[i]);
+        // console.log(movies[i].name + movies[i].createdAt + movies[i].rank);
         sum += movies[i].salesRevenue;
         if (movies[i].attendance >= 15000000) {
           // console.log(movies[i]);
@@ -66,11 +68,25 @@
         avg = sum / 5;
         var createdAt =
           new Date(movies[i].createdAt).getTime() / (1000 * 60 * 60 * 24);
-        // console.log(createdAt);
+        min = new Date(movies[0].createdAt).getTime() / (1000 * 60 * 60 * 24);
+        if (min >= createdAt) {
+          min = createdAt;
+          if (min == createdAt) {
+            moviesMinCreatedAt =
+              '이름 => ' +
+              movies[i].name +
+              ', ' +
+              '개봉 날짜 => ' +
+              movies[i].createdAt +
+              ', ' +
+              '순위 => ' +
+              movies[i].rank;
+          }
+        }
         if (max < createdAt) {
           max = createdAt;
-          if (createdAt == max) {
-            moviesCreatedAt =
+          if (max == createdAt) {
+            moviesMaxCreatedAt =
               '이름 => ' +
               movies[i].name +
               ', ' +
@@ -83,7 +99,8 @@
         }
       }
       // console.log(createdAt);
-      console.log('개봉날짜 가장 최근인 영화 => ' + moviesCreatedAt);
+      console.log('최소값 => ' + moviesMinCreatedAt);
+      console.log('개봉날짜 가장 최근인 영화 => ' + moviesMaxCreatedAt);
       console.log('판매액 합산금액 => ' + sum);
       console.log('1위~5위까지 판매액 평균값 => ' + avg);
       /*
