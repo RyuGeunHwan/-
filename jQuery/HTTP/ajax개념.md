@@ -15,7 +15,7 @@
 $.ajax({
         1. url: (API주소) 데이터를 가지고 올 API주소 or 파일 등
         2. type: HTTP method type(GET, POST, DELETE, PATCH, PUT...)
-        3. dataType: 데이터를 받아올 형식(json, html...)
+        3. dataType: 데이터를 받아올 형식(주로 json, html, xml로 보냄)
         4. success: function (data) {
         // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'data'는 응답받은 데이터이다.
             (서버 요청 성공하면 함수 실행)
