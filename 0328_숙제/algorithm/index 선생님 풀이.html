@@ -1,0 +1,61 @@
+// 자바스크립트 or 자바 선택해서 풀 것! // 버블정렬을 이용하여 오름차순으로
+정렬하고 총 몇회전 했는지 알아내시오.
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //버블정렬 README.md 파일 a태그 링크 참고!
+
+      // 버블정렬 문제를 풀 때 규칙을 먼저 찾는게 중요!
+      // 이문제 같은 경우 outer-for가 1씩 증가 할 때마다 inner-for가 1씩 감소 한다.
+
+      // let var 차이점
+      // 변수이름은 중복이 되면 안되지만
+      // var를 이용하면 변수를 중복되게 만들 수 있다.
+      // ex) var name = "ryugeunhwan"
+      //     var name = "ryugeunhwan"
+      //    가능 O
+      // let은 변수이름이 중복되게 만들 수 없다.
+      // ex) let name = "ryugeunhwan"
+      //     let name = "ryugeunhwan"
+      //    불가능 X
+
+      let array = [1, 10, 4, 3, 5];
+      let count = 0;
+      let temp = 0;
+      let len = array.length;
+      let isSwap = null;
+      // 애초에 배열이 정렬되어 있는 상태라면
+
+      for (let i = len; i > 0; i--) {
+        //outer - for
+        // console.log(i);
+        isSwap = false;
+        for (let j = 0; j < i - 1; j++) {
+          //inner - for
+          if (array[j] > array[j + 1]) {
+            let temp = array[j]; //큰 수
+            array[j] = array[j + 1]; // 작은 수
+            array[j + 1] = temp;
+            ++count;
+            isSwap = true;
+          }
+        }
+        if (!isSwap) break;
+      }
+      console.log(array + count);
+    </script>
+  </body>
+</html>

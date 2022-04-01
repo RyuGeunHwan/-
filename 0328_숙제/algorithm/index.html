@@ -15,6 +15,17 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      // let var 차이점
+      // 변수이름은 중복이 되면 안되지만
+      // var를 이용하면 변수를 중복되게 만들 수 있다.
+      // ex) var name = "ryugeunhwan"
+      //     var name = "ryugeunhwan"
+      //    가능 O
+      // let은 변수이름이 중복되게 만들 수 없다.
+      // ex) let name = "ryugeunhwan"
+      //     let name = "ryugeunhwan"
+      //    불가능 X
+
       let array = [1, 10, 4, 3, 5];
       let count = 0;
       let temp = 0;
@@ -37,15 +48,9 @@
           }
         }
       }
+      console.log(array);
       console.log('회전 수 = ' + count);
-      for (i = 0; i < iSize; i++) {
-        if (i == jSize) {
-          console.log(array[i]);
-          break;
-          // 마지막 배열순서일 때 쉼표 없이 break
-        }
-        console.log(array[i] + ',');
-      }
+
       //
       //
       //
