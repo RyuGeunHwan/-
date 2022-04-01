@@ -10,14 +10,36 @@
 ```
 
 - # HTTP 메소드 타입의 종류
+  멱등성 = 여러 번을 연속으로 보내도 같은 효과를 보이는것(결과가 달라지지 않는다). 즉, 부수효과가 없다.
 
 ```
 HTTP : 기능(method or function)
 1. ***GET = select (데이터 조회)
+    1-1) 같은 요청을 여러번 하더라도 변함없이 항상 같은 응답을 받을 수 있다.
+    1-2) 오로지 데이터를 읽을 때만 사용되므로 데이터를 변경하는 연산에 사용하면 안된다.
+
 2. POST = insert(데이터 생성,등록)
+    2-1) 하위리소스(부모 리소스의 하위리소스)들을 생성하는데 사용
+    2-2) 같은 요청을 반복했을 때 항상 같은 결과물이 나오는 것을 보장하지 않는다.(GET과 다름)
+
 3. DELETE (데이터 삭제)
 4. PATCH = update (데이터 부분적 변경)
 5. PUT (목적 리소스를 생성, 기존 리소스를 삭제하고 덮어쓰기(갱신))
+```
+
+- # GET, POST
+
+```
+- GET과 POST메소드는 약식으로도 표현 가능.
+1. get함수
+    $.get( URL , DATA , CALLBACK)
+    ex) $.get('http://github.com/users/Ryugeunhwan', function( data ){
+        // 깃허브의 사용자(아이디) 류근환인 사람의 정보를 data에 대입!
+        // 정보가 어떤 형식으로 날라오는지 data를 console.log()찍어보기!
+    })
+2. post함수
+    $.post( URL , DATA , CALLBACK)
+    ex) get과 형식은 같다.
 ```
 
 - # URL주소 (no!!no!!) = API주소(Application Programming Interface)
@@ -35,11 +57,12 @@ API를 점원이라고 생각하고 예를 들어보자.
 - # ajax 기본 문법
 
 ```
+자세한 내용은 ajax개념.md 파일 참고!
 $.ajax({
-        url:  (API주소) 데이터를 가지고 올 API주소 or 파일 등
-        type:   HTTP method type(GET, POST, DELETE, PATCH, PUT...)
-        dataType: 데이터를 받아올 형식(json, html...)
-        success: function (변수이름) {  가져온 데이터를 변수이름에 대입!
+        url:
+        type:
+        dataType:
+        success: function (변수이름) {
             (서버 요청 성공하면 함수 실행)
         },
         error: function (request, status, error) {
