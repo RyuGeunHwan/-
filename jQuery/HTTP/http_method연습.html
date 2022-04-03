@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid;
+        box-shadow: -1px 2px 1px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="my-github">
+      <h3 class="name">나의 깃허브 이름은?</h3>
+      <p class="followers">나의 깃허브 팔로워 수는?</p>
+      <p class="following">나의 깃허브 팔로잉 수는?</p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>visibility</th>
+          <th>create_at</th>
+        </tr>
+      </thead>
+      <tbody id="tbodyList">
+        <!-- <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr> -->
+      </tbody>
+    </table>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $.ajax({
+        url: 'https://api.github.com/users/RyuGeunHwan/repos',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          console.log('정보를 불러왔습니다.');
+        },
+        error: function (request, status, error) {
+          console.log(error + '정보를 가져오지 못하였습니다.');
+        },
+      });
+      $.get('https://api.github.com/users/RyuGeunHwan/repos ', function (data) {
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          let githubInformation =
+            '<tr><td>' +
+            data[i].id +
+            '</td><td>' +
+            data[i].name +
+            '</td><td>' +
+            data[i].visibility +
+            '</td><td>' +
+            data[i].create_at +
+            '</td></tr>';
+          $('#tbodyList').append(githubInformation);
+          console.log(githubInformation);
+        }
+      });
+      $.ajax({
+        url: 'https://api.github.com/users/RyuGeunHwan',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          console.log(data); // 비동기 전송이 성공하게 되면 API의 데이터를 json으로 받아옴
+          doAppend(data);
+        },
+        error: function (request, status, error) {
+          console.log(error);
+          // 404 = 없는주소
+        },
+      });
+      function doAppend(data) {
+        $('.name').append(data.name);
+        $('.followers').append(data.followers);
+        $('.following').append(data.following);
+      }
+    </script>
+  </body>
+</html>
