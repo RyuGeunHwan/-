@@ -19,6 +19,7 @@
       <p class="followers"></p>
       <p class="following"></p>
     </div>
+    `1
     <table>
       <thead>
         <tr>
@@ -60,7 +61,6 @@
         type: 'GET', // GET = 데이터조회(select),
         dataType: 'json', // API서버에서 오는 데이터 타입 정의(= dataType타입이 json임!)
         // = github에서 정보를 가지고 올 수 있는 token key(시간당 5000번)
-        // 깃허브 업로드시 headers 키 삭제!
         success: function (data) {
           // 서버 요청에 성공하면! API에서 받아온 정보를 변수 data에 대입(json으로)!
           console.log(data);

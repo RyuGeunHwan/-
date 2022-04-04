@@ -106,18 +106,19 @@
       for (var i = 0; i < marathonList.length; i++) {
         if (marathonList[i].records !== 'null') {
           var participantTime = new Date(marathonList[i].records).getTime();
+          // console.log(participantTime);
           var diffTime = participantTime - marathonStartTime;
-          // console.log('diffTime' + diffTime);
+          console.log(diffTime);
           if (cnt === 0) {
+            //if문 true -> 실행
             min = diffTime;
-            // console.log('min' + min);
           }
           ++cnt;
           // console.log('cnt' + cnt);
           if (min > diffTime) {
             min = diffTime;
             // 결과값 첫번째 방법
-            // console.log(marathonList[i]);
+            console.log(marathonList[i]);
             temp = i;
           }
         }

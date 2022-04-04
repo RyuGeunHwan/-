@@ -15,11 +15,15 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      // .load()의 문법
+      // .load(url [,data][,complete])
+      // 1. url : 데이터를 받을  url을 나타내는 문자열.
+      // 2. data : 선택적인 인자, url로 요청보낼 때 같이 보낼 데이터로 자바스크립트 객체 또는 문자열.
+      // 3. complete : 요청이 완료되면 호출되는 콜백함수.
       $(function () {
         $('#btn').click(function () {
           // #btn을 클릭하면 #div1에 (find).html 파일에 있는 아이디가baby인 태그의 text()로 로드한다.
           $('#div1').load('(find).html .baby', function () {
-            //.load('(find).html .baby')
             // (find).html 파일에 있는 아이디가baby인 태그의 text()를 가져옴.
             alert('전송 하였습니다.');
             return false;
