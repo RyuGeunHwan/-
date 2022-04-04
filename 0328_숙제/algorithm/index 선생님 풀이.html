@@ -46,11 +46,11 @@
         isSwap = false;
         //inner - for
         for (let j = 0; j < i - 1; j++) {
-          // 1회전 = array[j]는 index 0번째~4번째까지 비교
-          // 2회전 = array[j]는 index 0번째~3번째까지 비교
+          // outer-for 1회전 = array[j]는 index 0번째~4번째까지 비교
+          // outer-for 2회전 = array[j]는 index 0번째~3번째까지 비교
           // ...
-          // why? inner-for가 끝날때 마다 i는 감소하기 때문에
-          //      inner-for가 비교할 길이는 1씩 감소하여 비교한다.
+          // why? inner-for의 회전이 모두 끝날때 마다 i는 감소하기 때문에
+          //      inner-for가 비교할 길이(j < i - 1)는 1씩 감소하여 비교한다.
           if (array[j] > array[j + 1]) {
             // 1(=index)과 2(=다음index)를 비교해서 1이 더 크면
             // 변수 temp에 대입하고 2는 1에 대입하여 앞으로 빼준뒤
