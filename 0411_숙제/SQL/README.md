@@ -41,6 +41,47 @@ customer테이블로 left join한 뒤에 차집합(MINUS)에서
 교집합(INTERSECT)을 뺀 나머지 customer_id == "SMITH"
 ```
 
+```SQL
+-- 방법1.
+select c.customer_id as "아이디" ,
+c.customer_name as "이름",
+c.is_use as "탈퇴여부"
+from customer c left join customer_history_purchase chp
+on c.customer_id = chp.customer_id
+where chp.customer_id is null
+```
+
+```SQL
+-- 방법2.
+select c.customer_id as "아이디" ,
+c.customer_name as "이름",
+c.is_use as "탈퇴여부"
+from customer c
+where not exists (
+select distinct customer_id
+from customer_history_purchase chp
+where chp.customer_id = c.customer_id
+-- exists 개념 : 서브쿼리의 결과가 한건이라도 존재하면 true를 리턴하여 메인쿼리 실행, 존재하지않으면 false를 리턴
+-- not exists 개념 : 서브쿼리의 결과값이 존재하지 않는다면 true를 리턴, 존재한다면 false를 리턴
+-- exists, not exists서브쿼리에 join조건이 있을경우
+-- : exist 서브쿼리에 조인조건이 있다면 교집합인 데이터가 있다면 결과출력
+-- : not exists를 사용하여 서브쿼리에 join조건을 주게 되면 서브쿼리 조인조건을 제외한 나머지를 출력
+-- distinct = 중복제거;
+)
+```
+
+```SQL
+-- 방법3.
+select c.customer_id as "아이디" ,
+c.customer_name as "이름",
+c.is_use as "탈퇴여부"
+from customer c
+where c.customer_id not in(
+select distinct chp.customer_id
+from customer_history_purchase chp
+)
+```
+
 5. '2022-01-03'기준 고객 아이디별 구매 건수와 총 비용, 이름, 등급 조회.
 6. '2022-01-03'기준 3번 이상 구매한 고객 아이디, 이름, 등급 조회.
 7. 고객번호가 5194998인 고객 등급을 골드로 업데이트 하시오.
