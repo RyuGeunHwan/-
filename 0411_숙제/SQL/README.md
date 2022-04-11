@@ -83,5 +83,34 @@ from customer_history_purchase chp
 ```
 
 5. '2022-01-03'기준 고객 아이디별 구매 건수와 총 비용, 이름, 등급 조회.
+
+```SQL
+select count(chp.customer_id) as "구매 건수",
+sum(chp.cost) as "총 비용",
+c.customer_name as "이름",
+c.grade as "등급",
+chp.customer_id as "ID"
+from customer_history_purchase chp left join customer c
+on chp.customer_id  = c.customer_id
+group by chp.customer_id
+```
+
 6. '2022-01-03'기준 3번 이상 구매한 고객 아이디, 이름, 등급 조회.
+
+```SQL
+select chp.customer_id as "ID",
+c.customer_name as "NAME",
+c.grade as "GRADE"
+from customer_history_purchase chp left join customer c
+on chp.customer_id = c.customer_id
+group by chp.customer_id
+having count(chp.customer_id) >= 3
+```
+
 7. 고객번호가 5194998인 고객 등급을 골드로 업데이트 하시오.
+
+```SQL
+update customer
+set grade = "골드"
+where customer_id = 5194998
+```
