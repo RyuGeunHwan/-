@@ -128,24 +128,44 @@
             console.log('잘못 입력되었습니다');
           }
         }
+
         // 문제 3.
         // input value에 값을 입력하고 사원등록 click하면 랭킹 번호는 자동으로 1씩 증가(auto increment)
         // 방법1. count++해서 얼럿창에 count + '번 이후 번호를 작성 하여주세요'
         // 방법2. .append(count++)
-
-        // 문제 4.
-        // 방법 1.
-        // jsonData함수를 만들어서
-        // jsonData.no = $('#rank').val;
-        // jsonData.name = $('#name').val;
-        // jsonData.job = $('#job').val;
-        // jsonData.loc = $('#loc').val;
-        // jsonData.hiredate = $('#hiredate').val;
-        // input의 입력 값을 json에 넣기
-
-        // 방법 2.
-        // tr이라는 배열을 append해서 값으로 td를 추가
+        console.log($('tbody').children());
+        var tbodyChildren = $('tbody').children();
+        for (var i = 0; i < tbodyChildren.length; i++) {
+          var tbodyTdNumber = tbodyChildren[i].children[0];
+          console.log(tbodyTdNumber);
+          if ($('#rank').val() === tbodyTdNumber.innerHTML) {
+            console.log('랭킹은 중복될 수 없습니다.');
+            $('#rank').focus();
+            return false;
+          }
+        }
+        var inputWrapperChildren = $('.input-wrapper').children();
+        for (var i = 0; i < inputWrapperChildren.length; i++) {
+          var inputId = inputWrapperChildren[i].id;
+          console.log(inputId);
+          var inputValue = $('#' + inputId)
+            .val()
+            .trim();
+          console.log(inputValue);
+        }
       });
+      // 문제 4.
+      // 방법 1.
+      // jsonData함수를 만들어서
+      // jsonData.no = $('#rank').val;
+      // jsonData.name = $('#name').val;
+      // jsonData.job = $('#job').val;
+      // jsonData.loc = $('#loc').val;
+      // jsonData.hiredate = $('#hiredate').val;
+      // input의 입력 값을 json에 넣기
+
+      // 방법 2.
+      // tr이라는 배열을 append해서 값으로 td를 추가
 
       /*
       1번 문제: 사원등록 버튼을 클릭 했을 때 랭킹 부터 입사날짜까지 빈공간이 있으면
