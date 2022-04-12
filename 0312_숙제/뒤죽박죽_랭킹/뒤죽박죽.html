@@ -138,6 +138,7 @@
         var tbodyChildren = $('tbody').children();
         for (var i = 0; i < tbodyChildren.length; i++) {
           var tbodyTdNumber = tbodyChildren[i].children[0];
+          var rankNumber = tbodyTdNumber.innerHTML;
           console.log(tbodyTdNumber.innerHTML);
           if ($('#rank').val() === tbodyTdNumber.innerHTML) {
             console.log('랭킹은 중복될 수 없습니다.');
@@ -154,28 +155,47 @@
             .trim();
           console.log(inputValue);
         }
-
         appendTbody();
+      });
+
+      //문제5.
+      $('#asc').click(function () {
+        var tbodyChildren = $('tbody').children();
+        // tbodyChildren.each(function (index, item) {
+        //   var rankNumber = item.children[0].innerHTML;
+        //   var arr = new Array();
+        //   arr[i] = rankNumber;
+        //   console.log(arr);
+        // });
+        for (var i = 0; i < tbodyChildren.length; i++) {
+          var rankNum = tbodyChildren[i].children[0].innerText;
+          var arr = new Array(rankNum);
+          console.log(arr);
+        }
       });
 
       //문제4.
       function appendTbody() {
+        var rank = $('#rank').val().trim();
+        var name = $('#name').val().trim();
+        var job = $('#job').val().trim();
+        var loc = $('#loc').val().trim();
+        var hiredate = $('#hiredate').val().trim();
         var tbodyAppend =
           '<tr><td>' +
-          $('#rank').val().trim() +
+          rank +
           '</td><td>' +
-          $('#name').val().trim() +
+          name +
           '</td><td>' +
-          $('#job').val().trim() +
+          job +
           '</td><td>' +
-          $('#loc').val().trim() +
+          loc +
           '</td><td>' +
-          $('#hiredate').val().trim() +
+          hiredate +
           '</td></tr>';
         $('tbody').append(tbodyAppend);
       }
       //문제5.
-      $('#asc').click(function () {});
 
       // 문제 4.
       // 방법 1.
