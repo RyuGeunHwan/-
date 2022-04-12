@@ -116,14 +116,15 @@
         // 문제 2.
         var office = '';
         var array = new Array();
-        array = ['New York', 'San Francisco', 'London'];
+        array.push('New York');
+        array.push('San Francisco');
+        array.push('London');
         for (var i = 0; i < array.length; i++) {
-          // var tbodyTr = $('tbody tr').eq(i);
-          // office = tbodyTr.children()[3].innerText;
-          array[i] = array[i].replaceAll(' ', '').toLowerCase();
-          if ($('#loc').val().replaceAll(' ', '').toLowerCase() == array[i]) {
+          if (
+            $('#loc').val().replaceAll(' ', '').trim().toLowerCase() ===
+            array[i].replaceAll(' ', '').toLowerCase()
+          ) {
             console.log('부서가 맞습니다');
-            return false;
           } else {
             console.log('잘못 입력되었습니다');
           }
@@ -137,7 +138,7 @@
         var tbodyChildren = $('tbody').children();
         for (var i = 0; i < tbodyChildren.length; i++) {
           var tbodyTdNumber = tbodyChildren[i].children[0];
-          console.log(tbodyTdNumber);
+          console.log(tbodyTdNumber.innerHTML);
           if ($('#rank').val() === tbodyTdNumber.innerHTML) {
             console.log('랭킹은 중복될 수 없습니다.');
             $('#rank').focus();
@@ -153,7 +154,29 @@
             .trim();
           console.log(inputValue);
         }
+
+        appendTbody();
       });
+
+      //문제4.
+      function appendTbody() {
+        var tbodyAppend =
+          '<tr><td>' +
+          $('#rank').val().trim() +
+          '</td><td>' +
+          $('#name').val().trim() +
+          '</td><td>' +
+          $('#job').val().trim() +
+          '</td><td>' +
+          $('#loc').val().trim() +
+          '</td><td>' +
+          $('#hiredate').val().trim() +
+          '</td></tr>';
+        $('tbody').append(tbodyAppend);
+      }
+      //문제5.
+      $('#asc').click(function () {});
+
       // 문제 4.
       // 방법 1.
       // jsonData함수를 만들어서
