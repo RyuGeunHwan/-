@@ -59,7 +59,7 @@ public class UserService{
     //1. 부서이름이 DEVELOP인 사원 급여를 2배 인상하시오.
     public List<UserVO> updateSal(List<UserVO> list, String dname){
     	    	for(int i=0; i<list.size(); i++) {
-        	if(list.get(i).getDname() == "DEVELOP") {
+        	if(list.get(i).getDname().equals(dname)) {
         	System.out.println("부서이름 DEVELOP 급여인상 => "+list.get(i).getSal()*2);
         	}
         }
@@ -94,7 +94,7 @@ public class UserService{
     //4. 이름이 King인 직원의 모든 정보 조회.
     public UserVO selectUserByEname(List<UserVO> list, String ename){
         for(int i=0; i<list.size(); i++) {
-        	if(list.get(i).getEname() == ename) {
+        	if(list.get(i).getEname().equals(ename)) {
         		System.out.println("King의 부서이름 = "+list.get(i).getDname()+", King의 LV = "+list.get(i).getLv()+", King의 급여 = "+list.get(i).getSal());
         	}
         }
