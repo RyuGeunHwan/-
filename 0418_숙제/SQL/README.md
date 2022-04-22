@@ -19,20 +19,11 @@ from car_information ci
 2. 차량에 부착된 디바이스 uuid, battery, create_at 조회.
 
 ```SQL
-select d.uuid as id,
-d.battery as 배터리,
-d.create_at as 생성날짜
-from devices d
-```
-
-```SQL
 select d.device_uuid as id,
 d.battery as 배터리,
 d.create_at as 생성날짜
-from car_information ci left join devices d
-on ci.device_uuid = d.device_uuid
-left join car_event_log cel
-on ci.car_number = cel.car_number
+from devices d inner join car_information ci
+on d.device_uuid = ci.device_uuid
 ```
 
 3. UUID '20130099', 배터리 100, 펌웨어 버전 '1.0.1', 사용여부 TRUE인 디바이스를 devices에 등록하시오.
@@ -46,28 +37,49 @@ values ("20130099", 100, "1.0.1", true);
 
 ```SQL
 select d.device_uuid as id,
-d.firmware_ver as 펌웨이,
-if(count(cel.car_number) >= 1, count(cel.car_number), "null")as count
-from devices d left join car_information ci
+d.firmware_ver as 펌웨이
+from devices d inner join car_information ci
 on d.device_uuid = ci.device_uuid
-left join car_event_log cel
+inner join car_event_log cel
 on ci.car_number = cel.car_number
-group by cel.car_number
+where
+date_format(cel.create_at, '%Y-%m-%d')>='2022-04-11'
+ and
+ cel.event_type = '3'
+ group by d.device_uuid
 ```
 
 5. 2022-04-11 ~ 2022-04-13 일별 이벤트 카운트 조회.
 
 ```SQL
-select date_format(create_at, '%Y%m%d') as 날짜,
+select date_format(cel.create_at, '%Y-%m-%d') as 날짜,
 count(*) as 이벤트_발생_건수
 from car_event_log cel
-group by date_format(create_at, '%Y%m%d')
-order by create_at
+where date_format(cel.create_at, '%Y-%m-%d')
+		between '2022-04-11' and '2022-04-13'
+group by date_format(cel.create_at, '%Y-%m-%d')
 ```
 
 6. 전체 디바이스 수, 차량에 부착된 디바이스 수, 차량에 부착하지 않은 디바이스 수 조회.
 
 ```SQL
+--  6번의 보충 설명 구간 : 이것은...
+select
+	d1.devicesCnt as "전체 디바이스 수",
+	d2.carDevicesCnt as "차량에 부착된 디바이스 수",
+	count(*) as "부착하지 않은 디바이스 수"
+from
+(select
+	count(device_uuid) as devicesCnt
+from devices) as d1,
+(select
+	count(device_uuid) as carDevicesCnt
+from car_information ci) as d2,
+devices as d
+left join car_information as ci
+on d.device_uuid = ci.device_uuid
+where
+	ci.car_number is null
 
 ```
 
@@ -78,8 +90,8 @@ select date_format( create_at, '%Y%m%d') as 날짜 ,
 count(create_at) as count
 from car_event_log cel
 where car_number = '359서 9096' and
-date(create_at) between '2022-04-11' and '2022-04-13'
-group by date_format( create_at, '%Y%m%d')
+date_format(create_at) between '2022-04-11' and '2022-04-13'
+group by cel.event_type
 ```
 
 8. UUID가 '20133344'인 디바이스의 2022-04-11 ~ 2022-04-13에 발생한 이벤트타입, 이벤트 날짜, 차량번호판, 담당자 조회.
@@ -92,5 +104,5 @@ ci.admin_name as 담당자
 from car_event_log cel inner join car_information ci
 using(car_number)
 where ci.device_uuid = '20133344'and
-cel.create_at between '2022-04-11' and '2022-04-13'
+date_format(cel.create_at, '%Y-%m-%d')between '2022-04-11' and '2022-04-13'
 ```
