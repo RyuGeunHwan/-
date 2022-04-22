@@ -63,7 +63,6 @@ group by date_format(cel.create_at, '%Y-%m-%d')
 6. 전체 디바이스 수, 차량에 부착된 디바이스 수, 차량에 부착하지 않은 디바이스 수 조회.
 
 ```SQL
---  6번의 보충 설명 구간 : 이것은...
 select
 	d1.devicesCnt as "전체 디바이스 수",
 	d2.carDevicesCnt as "차량에 부착된 디바이스 수",
