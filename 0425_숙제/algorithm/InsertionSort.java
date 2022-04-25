@@ -1,17 +1,27 @@
+//이중for문, while문, 배열swap 서치해서 설명 작성하기, 알아보기
+
+
 package 삽입정렬;
-
-
 // 버블정렬, 선택정렬, 삽입정렬 중에 성능이 제일 좋은 정렬은 삽입정렬이다.
 
 public class InsertionSort {
 	
 	public static void main(String[] args) {
+        // 이중 for문 사용! 
         //삽입정렬을 이용하여 오름차순 정렬!
 		int array[] = {8, 5, 6, 2, 4};
-		for(int i=0; i<array.length; i++){
-			for(int j=0; j<array.length; j++){
-
+	int len = array.length;
+		int temp;
+		int i,j;
+		for(i=1; i<len; i++) {
+			temp = array[i];
+			for(j=i-1; j>=0; j--) {
+				if(temp>array[i])
+					break;
+				array[i] = array[j];
 			}
+			array[i] = temp;
+			System.out.println(array[i]);
 		}
 		        		
 	// 이중for문 사용 i와 j를 비교하여 j가 작으면 j를 한칸 앞으로 i는 뒤로 한칸 미룬다.(j=i+1)
