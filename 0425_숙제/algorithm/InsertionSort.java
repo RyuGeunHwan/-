@@ -1,4 +1,12 @@
 //이중for문, while문, 배열swap 서치해서 설명 작성하기, 알아보기
+// 알아두어야 할 개념
+	// 1. swap : swap(list, int i, int j)
+	//			1-1) list : 교환이 필요한 배열 or list
+	//			1-2) i : 교환할 인덱스
+	//			1-3) j : 교환할 인덱스
+	//			1-4) j : list에서 i와 j를 교환하다.
+	
+	// 2. while(조건문) : while 조건문안에 조건이 만족할 때 까지 계속에서 반복한다. 
 
 package 삽입정렬;
 // 버블정렬, 선택정렬, 삽입정렬 중에 성능이 제일 좋은 정렬은 삽입정렬이다.
@@ -8,23 +16,26 @@ public class InsertionSort {
 	public static void main(String[] args) {
         // 이중 for문 사용! 
         //삽입정렬을 이용하여 오름차순 정렬!
-		int array[] = {8, 5, 6, 2, 4};
-	int len = array.length;
+    		int array[] = {8, 5, 6, 2, 4};
+		int len = array.length;
 		int temp;
 		int i,j;
-		for(i=1; i<len; i++) {
-			temp = array[i];
-			for(j=i-1; j>=0; j--) {
-				if(temp>array[i])
-					break;
-				array[i] = array[j];
+		for(i=0; i<len; i++) {
+			j=i;
+			while(j>0 && array[j-1]>array[j]) {
+				temp = array[j];
+				array[j] = array[j-1];
+				array[j-1] = temp;
+				j= j-1;
 			}
-			array[i] = temp;
+		}
+		for(i=0; i<len; i++) {
 			System.out.println(array[i]);
 		}
-		        		
-	// 이중for문 사용 i와 j를 비교하여 j가 작으면 j를 한칸 앞으로 i는 뒤로 한칸 미룬다.(j=i+1)
-	// 단, j는 감소하면서 앞에 인덱스가 작은 수라면 계속 앞으로 가고 큰수는 한칸씩 뒤로 미룬다.
+	//풀이
+	//
+
+
 	}
 }
 
