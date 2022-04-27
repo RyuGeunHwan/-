@@ -31,7 +31,7 @@
           .val()
           .trim(); // 메소드체이닝(=메소드를 이어주는것)
         result = result.replaceAll(' ', '');
-        // console.log(result);
+        console.log(result);
 
         // 방법2. 부모(class="text-wrapper")와 자식(input)을 이용 한다. = children
         // text-wrapper의 자식 정보가 textWrapperChildren에 대입!
@@ -44,11 +44,11 @@
           var id = textWrapperChildren[i].id;
           // $('.text-wrapper').children()인 input들의 id값을 변수 id에 대입
           // id == '참이슬', '대선', '여수밤바다', '한라산', '린'
-          console.log(id);
+          // console.log(id);
           var value = $('#' + id)
             .val()
             .trim();
-          var value = $('#참이슬').val().trim();
+          // var value = $('#참이슬').val().trim();
           //$('#' + id) =='#참이슬', '#대선', '#여수밤바다', '#한라산', '#린'
 
           console.log(value);

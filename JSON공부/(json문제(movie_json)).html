@@ -16,7 +16,7 @@
           attendance : 관객수 */
       const movies = [
         {
-          name: '명량',
+          name: ['명량', '바보'],
           rank: 1,
           createdAt: '2014-07-30',
           salesRevenue: 135748398910,
@@ -51,13 +51,13 @@
           attendance: 13934592,
         },
       ];
-      // console.log(movies);
+      console.log(movies[0].name[1]);
       var sum = 0;
       var avg = 0;
       var max = 0;
       var min = 0;
-      let moviesMaxCreatedAt = '';
-      let moviesMinCreatedAt = '';
+      let moviesMaxCreatedAt = 0;
+      let moviesMinCreatedAt = 0;
       for (var i = 0; i < movies.length; i++) {
         // console.log(movies[i]);
         // console.log(movies[i].name + movies[i].createdAt + movies[i].rank);
@@ -71,17 +71,17 @@
         min = new Date(movies[0].createdAt).getTime() / (1000 * 60 * 60 * 24);
         if (min >= createdAt) {
           min = createdAt;
-          if (min == createdAt) {
-            moviesMinCreatedAt =
-              '이름 => ' +
-              movies[i].name +
-              ', ' +
-              '개봉 날짜 => ' +
-              movies[i].createdAt +
-              ', ' +
-              '순위 => ' +
-              movies[i].rank;
-          }
+          // if (min == createdAt) {
+          moviesMinCreatedAt =
+            '이름 => ' +
+            movies[i].name +
+            ', ' +
+            '개봉 날짜 => ' +
+            movies[i].createdAt +
+            ', ' +
+            '순위 => ' +
+            movies[i].rank;
+          // }
         }
         if (max < createdAt) {
           max = createdAt;
