@@ -1,4 +1,4 @@
-- ## ajax(ajax defalut value = 비동기 전송)
+- ## ajax(ajax defalut value = 비동기 통신)
 
 ```
 - 동기 : 요청과 결과가 한 자리에서 동시에 일어남,
