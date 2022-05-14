@@ -176,11 +176,11 @@
     //사원 추가
     $('#btn').click(function () {
       let jsonData = {
-        empno: 8045,
-        ename: '삼각발',
-        deptno: 20,
-        sal: 150,
-        job: '프리랜서',
+        empno: 8388,
+        ename: '팔삼팔팔',
+        deptno: 10,
+        sal: 180,
+        job: 'coach',
       };
       $.ajax({
         url: 'http://localhost:8080/emp',
@@ -190,7 +190,7 @@
         data: JSON.stringify(jsonData), // data : JSON.stringify(json을 담은 변수명)을 안해주면 json을 문자로 인식 <-> 해주면 json으로 인식
         success: function (response) {
           console.log(response);
-          location.reload();
+          location.reload(); //자동으로 새로고침 함수.
         },
         error: function (request, status, error) {
           console.log(error);
@@ -201,10 +201,10 @@
     //사원 수정
     $('#btn-update').click(function () {
       let jsonData = {
-        job: 'MANAGER',
-        sal: 2500,
+        job: 'OFFICIAL',
+        sal: 130,
       };
-      let empno = 7902;
+      let empno = 8388;
       $.ajax({
         url: 'http://localhost:8080/api/v1/emp/' + empno, // controller 주소, 웹 출력시 수정하고자 하는 empno 헤더에 작성
         type: 'PATCH', //HTTP 메소드 (GET,POST,DELETE,PATCH)
