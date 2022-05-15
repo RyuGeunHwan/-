@@ -102,7 +102,7 @@
       type: 'GET',
       dataType: 'json',
       success: function (response) {
-        //response : 변수이름이다.
+        // response : url주소에서 받아온 데이터가 json으로 들어가 있는 변수이다.
         // 데이터 요청이 성공한다면 success함수가 실행 된다.
         var count = 0;
         for (var i = 0; i < response.length; i++) {
@@ -126,6 +126,7 @@
       let html = '';
       for (var i = 0; i < response.length; i++) {
         html +=
+          // html : 게시판의 형식과 어떤데이터를 추가할지를 담는 변수이다.
           '<tr><td><a onclick=removeEmp(' + //a태그(웹서버에서 개발자 관리도구 참고(a태그가 붙어있는지)) == empno를 클릭하게 되면 removeEmp 함수 실행!
           //onclick=removeEmp(파라미터 값) : ''안에 있어도 html이라고 생각하면 된다.
           response[i].empno + //removeEmp함수에서 파라미터에 어떤 empno를 삭제할 것인지 넣어주기 위한  empno
@@ -162,7 +163,7 @@
           dataType: 'json',
           success: function (response) {
             console.log(response);
-
+            alert('사원번호 : ' + empNo + '번을 삭제하였습니다.');
             // 클릭해서 지웠으니까 새로고침을 해주어야함.
             location.reload();
           },
@@ -176,11 +177,11 @@
     //사원 추가
     $('#btn').click(function () {
       let jsonData = {
-        empno: 8388,
-        ename: '팔삼팔팔',
-        deptno: 10,
-        sal: 180,
-        job: 'coach',
+        empno: 9105,
+        ename: '구일공오',
+        deptno: 30,
+        sal: 90,
+        job: 'MAC',
       };
       $.ajax({
         url: 'http://localhost:8080/emp',
@@ -191,6 +192,7 @@
         success: function (response) {
           console.log(response);
           location.reload(); //자동으로 새로고침 함수.
+          console.log(jsonData); //location.reload 새로고침 함수가 있어서 console.log를 하여도 결과출력을 볼 수 없네...
         },
         error: function (request, status, error) {
           console.log(error);
