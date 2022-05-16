@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 1200px;
+        margin: 50px auto;
+        display: flex;
+      }
+      .signUp-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 800px;
+        height: 900px;
+        margin: 0 auto;
+        padding: 50px 50px;
+        justify-items: center;
+        background-color: aquamarine;
+        border-radius: 30px;
+        align-items: center;
+      }
+      input {
+        padding: 5px;
+        margin-bottom: 30px;
+        width: 400px;
+      }
+      label {
+        text-align: center;
+        color: blue;
+        font-weight: 800;
+        font-size: 20px;
+      }
+      .email input {
+        width: 100px;
+        padding-left: 4rem;
+      }
+      #signup {
+        padding: 5px 1px;
+        font-size: 15px;
+        font-weight: 800;
+        margin-left: 250px;
+        margin-right: 250px;
+        cursor: pointer;
+      }
+      #addr {
+        width: auto;
+        height: auto;
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="signUp-box">
+        <label for="userId">아이디</label>
+        <input id="id-box" type="text" />
+        <label for="password">비밀번호</label>
+        <input id="password-box" type="password" />
+        <label for="password-reconfirm">비밀번호 재확인</label>
+        <input id="password-reconfirm-box" type="password" />
+        <label for="name">이름</label>
+        <input id="name-box" type="text" />
+        <label for="rrn">주민등록번호 앞자리</label>
+        <input id="rrn-box" type="text" /><!-- 주민등록번호 -->
+        <label for="email">이메일</label>
+        <div class="email">
+          <input id="email1-box" type="text" />@<input
+            id="email2-box"
+            type="text"
+          />.
+          <input id="email3-box" type="text" />
+        </div>
+        <label for="addr">주소</label>
+        <select name="addr-select-box" id="addr">
+          <option value="">-- 시/군/구 --</option>
+          <option value="seoul">서울특별시</option>
+          <option value="daejeon">대전광역시</option>
+          <option value="sejong">세종특별자치시</option>
+        </select>
+        <label
+          for="
+detailedAddress"
+          >상세주소</label
+        >
+        <input id="addr-box" type="text" />
+        <button id="signup" value="회원가입">회원가입</button>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $('#signup').click(function () {});
+    </script>
+  </body>
+</html>
