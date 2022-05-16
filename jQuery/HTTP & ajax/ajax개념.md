@@ -15,12 +15,14 @@
 $.ajax({
         1. url: (API주소) 데이터를 가지고 올 API주소 or 파일 등
         2. type: HTTP method type(GET, POST, DELETE, PATCH, PUT...)
-        3. dataType: 데이터를 받아올 형식(주로 json, html, xml로 보냄)
-        4. success: function (data) {
+        3. contentType: 'application/json', // contentType : 서버에게 json으로 요청한다.
+        4. dataType: 데이터를 받아올 형식(주로 json, html, xml로 보냄)
+        5. data: JSON.stringify(jsonData), // data : JSON.stringify(json을 담은 변수명)을 안해주면 json을 문자로 인식 <-> 해주면 json으로 인식
+        6. success: function (data) {
         // 비동기통신의 성공일경우 success콜백으로 들어옵니다. 'data'는 응답받은 데이터이다.
             (서버 요청 성공하면 함수 실행)
         },
-        5. error: function (request, status, error) {
+        7. error: function (request, status, error) {
         // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
             (서버 요청 실패하면 함수 실행)
         },
