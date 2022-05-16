@@ -76,21 +76,6 @@
       <label for="yy">생년월일</label>
       <div class="row">
         <input id="yy" type="date" placeholder="년(4자)" />
-        <!-- <select name="gender" id="pet-select">
-          <option selected>월</option>
-          <option value="01">1</option>
-          <option value="02">2</option>
-          <option value="03">3</option>
-          <option value="04">4</option>
-          <option value="05">5</option>
-          <option value="06">6</option>
-          <option value="07">7</option>
-          <option value="08">8</option>
-          <option value="09">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-        </select> -->
         <!-- <label for="dd"></label>
         <input id="dd" type="text" placeholder="일" /> -->
       </div>
@@ -242,16 +227,6 @@
         //  /^[0-9]+$/;
         return regexInt.test(year);
       }
-      // function checkDd(month) {
-      //   var regexInt = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
-      //   // /^[0-9]+$/;
-      //   return regexInt.test(month);
-      // }
-      // function checkDd(day) {
-      //   var regexInt = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
-      //   // /^[0-9]+$/;
-      //   return regexInt.test(day);
-      // }
 
       $('#btn-select').click(function () {
         $.ajax({
