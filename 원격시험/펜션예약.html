@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <label for="name">성명</label>
+      <input id="name" type="text" />
+      <label for="phoneNum">핸드폰번호</label>
+      <div class="phone">
+        <select name="firstPhoneNum-box" id="firstPhoneNum-box">
+          <option value="" selected>핸드폰 번호</option>
+          <option value="010">010</option>
+          <option value="011">011</option>
+          <option value="016">016</option>
+          <option value="017">017</option>
+        </select>
+        -
+        <input id="middlePhoneNum-box" type="text" placeholder="ex) 0000" />-
+        <input id="lastPhoneNum-box" type="text" placeholder="ex) 0000" />
+      </div>
+      <label for="room">싱글룸</label>
+      <input
+        type="checkbox"
+        name="room"
+        id="singleRoom"
+        value="10000000"
+        checked
+      />
+      <label for="room">더블룸</label>
+      <input type="checkbox" name="room" id="doubleRoom" value="20000000" />
+      <label for="room">트윈룸</label>
+      <input type="checkbox" name="room" id="twinRoom" value="30000000" />
+      <label for="room">스위트룸</label>
+      <input type="checkbox" name="room" id="suiteRoom" value="40000000" />
+      <label for="room">헐리우드룸</label>
+      <input type="checkbox" name="room" id="hollywoodRoom" value="50000000" />
+      <select name="adult" id="adult">
+        <option value="none" selected>---성인 인원수---</option>
+        <option value="countOne">1</option>
+        <option value="countTwo">2</option>
+      </select>
+      <select name="chidren" id="chidren">
+        <option value="none" selected>---아이 인원수---</option>
+        <option value="countOne">1</option>
+        <option value="countTwo">2</option>
+      </select>
+      <label for="">입실날짜</label>
+      <input type="date" name="Check-in date" id="checkIn" />
+      <label for="">퇴실날짜</label>
+      <input type="date" name="Check-out date" id="checkOut" />
+      <button>예약 하기</button>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $('button').click(function () {
+        var singleRoom = $('#singleRoom').val();
+        var doubleRoom = $('#doubleRoom').val();
+        var twinRoom = $('#twinRoom').val();
+        var suiteRoom = $('#suiteRoom').val();
+        var hollywoodRoom = $('#hollywoodRoom').val();
+        var count = 0;
+        for (var i = 0; i < $('input[name=room]').length; i++) {
+          count++;
+          // $('input[name=room]')[i].val();
+          if ($('input[name=room]')[i].checked == true) {
+            console.log($('input[name=room]')[i].value);
+            alert($('input[name=room]')[i].value);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

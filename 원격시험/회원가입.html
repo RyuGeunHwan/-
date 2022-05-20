@@ -29,6 +29,18 @@
         border-radius: 30px;
         align-items: center;
       }
+      .phone {
+        height: 100px;
+        display: flex;
+      }
+      .phone input {
+        width: 130px;
+        height: auto;
+      }
+      .phone select {
+        width: 130px;
+        height: 30px;
+      }
       input {
         padding: 5px;
         margin-bottom: 30px;
@@ -73,6 +85,19 @@
         <input id="name-box" type="text" />
         <label for="rrn">주민등록번호 앞자리</label>
         <input id="rrn-box" type="text" /><!-- 주민등록번호 -->
+        <label for="phoneNum">전화번호</label>
+        <div class="phone">
+          <select name="firstPhoneNum-box" id="firstPhoneNum-box">
+            <option value="" selected>핸드폰 번호</option>
+            <option value="010">010</option>
+            <option value="011">011</option>
+            <option value="016">016</option>
+            <option value="017">017</option>
+          </select>
+          -
+          <input id="middlePhoneNum-box" type="text" placeholder="ex) 0000" />-
+          <input id="lastPhoneNum-box" type="text" placeholder="ex) 0000" />
+        </div>
         <label for="email">이메일</label>
         <div class="email">
           <input id="email1-box" type="text" />@<input
