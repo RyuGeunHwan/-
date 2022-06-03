@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="friday" type="text" value="오늘은 금요일" />
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    // 실행 순서 1
+    var value = $('#friday').val();
+    console.log(value);
+
+    // 실행 순서 2
+    $.ajax({
+      url: 'http://localhost:8080/api/v1/board?pageNum=1&pageSize=10',
+      type: 'GET',
+      dataType: 'json',
+      success: function (response) {
+        //then (node.js)
+        var html = '<input id="monday" type="text" value="오늘은 월요일">';
+        $('body').append(html);
+      },
+    });
+
+    // 실행 순서 3
+    var value2 = $('#monday').val();
+    console.log(value2);
+
+    // 원래 알고 있는 실행 순서는 1 -> 2 -> 3 이지만 ajax는 비동기(일을 맡겨놓고 결과가 나오지 않아도 다른일을 할 수 있음.) 통신이므로
+    // 실행 순서가 1 -> 3-> 2가 된다. 즉, ajax안에 있는 input의 id를 출력하면 null이 나온다.
+
+    // 여기서 ajax안에 있는 함수를 출력하려면 어떻게 해야하는가?
+    // success 함수 안에 출력을 하면 된다. ajax의 결과를 가져오는데 성공했을 경우 출력을 할 수 있다.
+  </script>
+</html>
