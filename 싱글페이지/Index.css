@@ -123,6 +123,7 @@ header:hover #headerUl {
   overflow: hidden;
 }
 #NABBA_video {
+  margin-left: 120px;
   z-index: 1;
   border-radius: 50px;
 }
@@ -161,6 +162,7 @@ figure p {
   text-align: center;
   font-size: 50px;
   font-weight: 700;
+  margin-right: 50px;
 }
 .main img {
   /* width: 500px;
